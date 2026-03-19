@@ -1,0 +1,8 @@
+﻿@using EMRLOGQUERY.Models
+@model List<AuditModels>
+
+
+@{Html.RenderPartial("~/Views/Home/component/SearchPanel.cshtml", new ViewDataDictionary { { "UniqueId", "Audit" } }); }
+@{ Html.RenderPartial("~/Views/Audit/AuditDataGridView.cshtml"); }
+
+@{Html.RenderPartial("~/Views/Home/component/_ShowProgress.cshtml", new ViewDataDictionary { { "UniqueId", "Audit" } }); }

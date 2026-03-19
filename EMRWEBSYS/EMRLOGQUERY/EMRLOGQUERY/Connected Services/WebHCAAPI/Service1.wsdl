@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="VerifySignatureByCert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hexcer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hexSignature" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifySignatureByCertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifySignatureByCertResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifySignatureByCert2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EMR_SysKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSigningDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSigningTime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ISsRequestOrgSign" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifySignatureByCert2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifySignatureByCert2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertPrintLOG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DS">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Print_Reason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="login_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="INTReason" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertPrintLOGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertPrintLOGResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LOGIN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LOGINResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LOGINResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFemhSignatureDATA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sRequestUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFemhSignatureDATAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFemhSignatureDATAResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFemhSignatureInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EMR_SysKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFemhSignatureInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFemhSignatureInfoResult" type="tns:FemhSignature" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FemhSignature">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="cbData" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="pbData" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getsPINCODE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getsPINCODEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getsPINCODEResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDOCHASHcode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FILEPATH" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDOCHASHcodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDOCHASHcodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SHA1Crypt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PATCH" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SHA1CryptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SHA1CryptResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertEMRLOG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="System" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="REPORTNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PATNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="login_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertEMRLOGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertEMRLOGResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertPrintLog_20240125">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IDList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Print_Reason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="login_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="INTReason" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertPrintLog_20240125Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertPrintLog_20240125Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertViewLog_20240125">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IDList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="login_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertViewLog_20240125Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertViewLog_20240125Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VerifySignatureByCertSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifySignatureByCert" />
+  </wsdl:message>
+  <wsdl:message name="VerifySignatureByCertSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifySignatureByCertResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifySignatureByCert2SoapIn">
+    <wsdl:part name="parameters" element="tns:VerifySignatureByCert2" />
+  </wsdl:message>
+  <wsdl:message name="VerifySignatureByCert2SoapOut">
+    <wsdl:part name="parameters" element="tns:VerifySignatureByCert2Response" />
+  </wsdl:message>
+  <wsdl:message name="InsertPrintLOGSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertPrintLOG" />
+  </wsdl:message>
+  <wsdl:message name="InsertPrintLOGSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertPrintLOGResponse" />
+  </wsdl:message>
+  <wsdl:message name="LOGINSoapIn">
+    <wsdl:part name="parameters" element="tns:LOGIN" />
+  </wsdl:message>
+  <wsdl:message name="LOGINSoapOut">
+    <wsdl:part name="parameters" element="tns:LOGINResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFemhSignatureDATASoapIn">
+    <wsdl:part name="parameters" element="tns:getFemhSignatureDATA" />
+  </wsdl:message>
+  <wsdl:message name="getFemhSignatureDATASoapOut">
+    <wsdl:part name="parameters" element="tns:getFemhSignatureDATAResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFemhSignatureInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getFemhSignatureInfo" />
+  </wsdl:message>
+  <wsdl:message name="getFemhSignatureInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getFemhSignatureInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getsPINCODESoapIn">
+    <wsdl:part name="parameters" element="tns:getsPINCODE" />
+  </wsdl:message>
+  <wsdl:message name="getsPINCODESoapOut">
+    <wsdl:part name="parameters" element="tns:getsPINCODEResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDOCHASHcodeSoapIn">
+    <wsdl:part name="parameters" element="tns:getDOCHASHcode" />
+  </wsdl:message>
+  <wsdl:message name="getDOCHASHcodeSoapOut">
+    <wsdl:part name="parameters" element="tns:getDOCHASHcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SHA1CryptSoapIn">
+    <wsdl:part name="parameters" element="tns:SHA1Crypt" />
+  </wsdl:message>
+  <wsdl:message name="SHA1CryptSoapOut">
+    <wsdl:part name="parameters" element="tns:SHA1CryptResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertEMRLOGSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertEMRLOG" />
+  </wsdl:message>
+  <wsdl:message name="InsertEMRLOGSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertEMRLOGResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertPrintLog_20240125SoapIn">
+    <wsdl:part name="parameters" element="tns:InsertPrintLog_20240125" />
+  </wsdl:message>
+  <wsdl:message name="InsertPrintLog_20240125SoapOut">
+    <wsdl:part name="parameters" element="tns:InsertPrintLog_20240125Response" />
+  </wsdl:message>
+  <wsdl:message name="InsertViewLog_20240125SoapIn">
+    <wsdl:part name="parameters" element="tns:InsertViewLog_20240125" />
+  </wsdl:message>
+  <wsdl:message name="InsertViewLog_20240125SoapOut">
+    <wsdl:part name="parameters" element="tns:InsertViewLog_20240125Response" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="VerifySignatureByCert">
+      <wsdl:input message="tns:VerifySignatureByCertSoapIn" />
+      <wsdl:output message="tns:VerifySignatureByCertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifySignatureByCert2">
+      <wsdl:input message="tns:VerifySignatureByCert2SoapIn" />
+      <wsdl:output message="tns:VerifySignatureByCert2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPrintLOG">
+      <wsdl:input message="tns:InsertPrintLOGSoapIn" />
+      <wsdl:output message="tns:InsertPrintLOGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LOGIN">
+      <wsdl:input message="tns:LOGINSoapIn" />
+      <wsdl:output message="tns:LOGINSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFemhSignatureDATA">
+      <wsdl:input message="tns:getFemhSignatureDATASoapIn" />
+      <wsdl:output message="tns:getFemhSignatureDATASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFemhSignatureInfo">
+      <wsdl:input message="tns:getFemhSignatureInfoSoapIn" />
+      <wsdl:output message="tns:getFemhSignatureInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getsPINCODE">
+      <wsdl:input message="tns:getsPINCODESoapIn" />
+      <wsdl:output message="tns:getsPINCODESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDOCHASHcode">
+      <wsdl:input message="tns:getDOCHASHcodeSoapIn" />
+      <wsdl:output message="tns:getDOCHASHcodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SHA1Crypt">
+      <wsdl:input message="tns:SHA1CryptSoapIn" />
+      <wsdl:output message="tns:SHA1CryptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEMRLOG">
+      <wsdl:input message="tns:InsertEMRLOGSoapIn" />
+      <wsdl:output message="tns:InsertEMRLOGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPrintLog_20240125">
+      <wsdl:input message="tns:InsertPrintLog_20240125SoapIn" />
+      <wsdl:output message="tns:InsertPrintLog_20240125SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertViewLog_20240125">
+      <wsdl:input message="tns:InsertViewLog_20240125SoapIn" />
+      <wsdl:output message="tns:InsertViewLog_20240125SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerifySignatureByCert">
+      <soap:operation soapAction="http://tempuri.org/VerifySignatureByCert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifySignatureByCert2">
+      <soap:operation soapAction="http://tempuri.org/VerifySignatureByCert2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPrintLOG">
+      <soap:operation soapAction="http://tempuri.org/InsertPrintLOG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LOGIN">
+      <soap:operation soapAction="http://tempuri.org/LOGIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFemhSignatureDATA">
+      <soap:operation soapAction="http://tempuri.org/getFemhSignatureDATA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFemhSignatureInfo">
+      <soap:operation soapAction="http://tempuri.org/getFemhSignatureInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getsPINCODE">
+      <soap:operation soapAction="http://tempuri.org/getsPINCODE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDOCHASHcode">
+      <soap:operation soapAction="http://tempuri.org/getDOCHASHcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SHA1Crypt">
+      <soap:operation soapAction="http://tempuri.org/SHA1Crypt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEMRLOG">
+      <soap:operation soapAction="http://tempuri.org/InsertEMRLOG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPrintLog_20240125">
+      <soap:operation soapAction="http://tempuri.org/InsertPrintLog_20240125" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertViewLog_20240125">
+      <soap:operation soapAction="http://tempuri.org/InsertViewLog_20240125" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerifySignatureByCert">
+      <soap12:operation soapAction="http://tempuri.org/VerifySignatureByCert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifySignatureByCert2">
+      <soap12:operation soapAction="http://tempuri.org/VerifySignatureByCert2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPrintLOG">
+      <soap12:operation soapAction="http://tempuri.org/InsertPrintLOG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LOGIN">
+      <soap12:operation soapAction="http://tempuri.org/LOGIN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFemhSignatureDATA">
+      <soap12:operation soapAction="http://tempuri.org/getFemhSignatureDATA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFemhSignatureInfo">
+      <soap12:operation soapAction="http://tempuri.org/getFemhSignatureInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getsPINCODE">
+      <soap12:operation soapAction="http://tempuri.org/getsPINCODE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDOCHASHcode">
+      <soap12:operation soapAction="http://tempuri.org/getDOCHASHcode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SHA1Crypt">
+      <soap12:operation soapAction="http://tempuri.org/SHA1Crypt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEMRLOG">
+      <soap12:operation soapAction="http://tempuri.org/InsertEMRLOG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPrintLog_20240125">
+      <soap12:operation soapAction="http://tempuri.org/InsertPrintLog_20240125" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertViewLog_20240125">
+      <soap12:operation soapAction="http://tempuri.org/InsertViewLog_20240125" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="https://intra5.femh.org.tw/WebHCAAPI/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="https://intra5.femh.org.tw/WebHCAAPI/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

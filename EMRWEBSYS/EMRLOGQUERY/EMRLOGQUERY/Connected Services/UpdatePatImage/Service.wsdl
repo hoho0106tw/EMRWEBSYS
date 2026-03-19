@@ -1,0 +1,1762 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="UpdatePatImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="m_GetSysId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_GetCheckId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_PatientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_Scan" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePatImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePatImageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIfExits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="m_PatientNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIfExitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckIfExitsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIfExitsOpdMrBasic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chmrno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIfExitsOpdMrBasicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckIfExitsOpdMrBasicResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIfExitsOpdMrBasicByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIfExitsOpdMrBasicByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckIfExitsOpdMrBasicByIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IpdMergeMrno">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="m_mrno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strtype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IpdMergeMrnoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IpdMergeMrnoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTwDrgs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="m_mrno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTwDrgsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTwDrgsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chkDrgAuthorizaTion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strMrno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chkDrgAuthorizaTionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chkDrgAuthorizaTionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewMrno">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNewMrnoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewMrnoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsMrnoLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vchUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchPCName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchPCIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchAPI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchFunction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchMrNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchNote" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsMrnoLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsMrnoLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsMrnoLogBy4Key">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vchUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchPCName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchPCIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchAPI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchFunction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchMrNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchNote" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchRoom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsMrnoLogBy4KeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsMrnoLogBy4KeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAbnormalID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strMrno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAbnormalIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAbnormalIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdPtData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strPID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdPtDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdPtDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsVirtualICPt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vchMrno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchRoom" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsVirtualICPtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsVirtualICPtResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chkVirtualICPt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vchMrno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chkVirtualICPtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chkVirtualICPtResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsDrgAuthorization">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vchMrno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsDrgAuthorizationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsDrgAuthorizationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsDrgAuthorization_Online">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vchMrno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsDrgAuthorization_OnlineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsDrgAuthorization_OnlineResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsSWKNO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vchMrno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vchUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnDC" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strNote" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSecno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsSWKNOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsSWKNOResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChkIllArea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="m_mrno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChkIllAreaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChkIllAreaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsOpdMrBasicByWeb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBirthday" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSex" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPassPort" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsOpdMrBasicByWebResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsOpdMrBasicByWebResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsOpdMrBasicByCovid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBirthday" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsOpdMrBasicByCovidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsOpdMrBasicByCovidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdatePatImageSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePatImage" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePatImageSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePatImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckIfExits" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckIfExitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckIfExitsOpdMrBasic" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckIfExitsOpdMrBasicResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckIfExitsOpdMrBasicByID" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckIfExitsOpdMrBasicByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IpdMergeMrnoSoapIn">
+    <wsdl:part name="parameters" element="tns:IpdMergeMrno" />
+  </wsdl:message>
+  <wsdl:message name="IpdMergeMrnoSoapOut">
+    <wsdl:part name="parameters" element="tns:IpdMergeMrnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTwDrgsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTwDrgs" />
+  </wsdl:message>
+  <wsdl:message name="GetTwDrgsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTwDrgsResponse" />
+  </wsdl:message>
+  <wsdl:message name="chkDrgAuthorizaTionSoapIn">
+    <wsdl:part name="parameters" element="tns:chkDrgAuthorizaTion" />
+  </wsdl:message>
+  <wsdl:message name="chkDrgAuthorizaTionSoapOut">
+    <wsdl:part name="parameters" element="tns:chkDrgAuthorizaTionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewMrnoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewMrno" />
+  </wsdl:message>
+  <wsdl:message name="GetNewMrnoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewMrnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogSoapIn">
+    <wsdl:part name="parameters" element="tns:InsMrnoLog" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogSoapOut">
+    <wsdl:part name="parameters" element="tns:InsMrnoLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogBy4KeySoapIn">
+    <wsdl:part name="parameters" element="tns:InsMrnoLogBy4Key" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogBy4KeySoapOut">
+    <wsdl:part name="parameters" element="tns:InsMrnoLogBy4KeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAbnormalIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAbnormalID" />
+  </wsdl:message>
+  <wsdl:message name="GetAbnormalIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAbnormalIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdPtDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdPtData" />
+  </wsdl:message>
+  <wsdl:message name="UpdPtDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdPtDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsVirtualICPtSoapIn">
+    <wsdl:part name="parameters" element="tns:InsVirtualICPt" />
+  </wsdl:message>
+  <wsdl:message name="InsVirtualICPtSoapOut">
+    <wsdl:part name="parameters" element="tns:InsVirtualICPtResponse" />
+  </wsdl:message>
+  <wsdl:message name="chkVirtualICPtSoapIn">
+    <wsdl:part name="parameters" element="tns:chkVirtualICPt" />
+  </wsdl:message>
+  <wsdl:message name="chkVirtualICPtSoapOut">
+    <wsdl:part name="parameters" element="tns:chkVirtualICPtResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorizationSoapIn">
+    <wsdl:part name="parameters" element="tns:InsDrgAuthorization" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorizationSoapOut">
+    <wsdl:part name="parameters" element="tns:InsDrgAuthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorization_OnlineSoapIn">
+    <wsdl:part name="parameters" element="tns:InsDrgAuthorization_Online" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorization_OnlineSoapOut">
+    <wsdl:part name="parameters" element="tns:InsDrgAuthorization_OnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsSWKNOSoapIn">
+    <wsdl:part name="parameters" element="tns:InsSWKNO" />
+  </wsdl:message>
+  <wsdl:message name="InsSWKNOSoapOut">
+    <wsdl:part name="parameters" element="tns:InsSWKNOResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChkIllAreaSoapIn">
+    <wsdl:part name="parameters" element="tns:ChkIllArea" />
+  </wsdl:message>
+  <wsdl:message name="ChkIllAreaSoapOut">
+    <wsdl:part name="parameters" element="tns:ChkIllAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByWebSoapIn">
+    <wsdl:part name="parameters" element="tns:InsOpdMrBasicByWeb" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByWebSoapOut">
+    <wsdl:part name="parameters" element="tns:InsOpdMrBasicByWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByCovidSoapIn">
+    <wsdl:part name="parameters" element="tns:InsOpdMrBasicByCovid" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByCovidSoapOut">
+    <wsdl:part name="parameters" element="tns:InsOpdMrBasicByCovidResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePatImageHttpGetIn">
+    <wsdl:part name="m_GetSysId" type="s:string" />
+    <wsdl:part name="m_GetCheckId" type="s:string" />
+    <wsdl:part name="m_PatientNo" type="s:string" />
+    <wsdl:part name="m_Scan" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePatImageHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsHttpGetIn">
+    <wsdl:part name="m_PatientNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicHttpGetIn">
+    <wsdl:part name="chmrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicByIDHttpGetIn">
+    <wsdl:part name="chid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicByIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="IpdMergeMrnoHttpGetIn">
+    <wsdl:part name="m_mrno" type="s:string" />
+    <wsdl:part name="strtype" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IpdMergeMrnoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTwDrgsHttpGetIn">
+    <wsdl:part name="m_mrno" type="s:string" />
+    <wsdl:part name="strOutDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTwDrgsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="chkDrgAuthorizaTionHttpGetIn">
+    <wsdl:part name="strMrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="chkDrgAuthorizaTionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNewMrnoHttpGetIn" />
+  <wsdl:message name="GetNewMrnoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogHttpGetIn">
+    <wsdl:part name="vchUserID" type="s:string" />
+    <wsdl:part name="vchPCName" type="s:string" />
+    <wsdl:part name="vchPCIP" type="s:string" />
+    <wsdl:part name="vchAPI" type="s:string" />
+    <wsdl:part name="vchFunction" type="s:string" />
+    <wsdl:part name="vchMrNo" type="s:string" />
+    <wsdl:part name="vchNote" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogBy4KeyHttpGetIn">
+    <wsdl:part name="vchUserID" type="s:string" />
+    <wsdl:part name="vchPCName" type="s:string" />
+    <wsdl:part name="vchPCIP" type="s:string" />
+    <wsdl:part name="vchAPI" type="s:string" />
+    <wsdl:part name="vchFunction" type="s:string" />
+    <wsdl:part name="vchMrNo" type="s:string" />
+    <wsdl:part name="vchNote" type="s:string" />
+    <wsdl:part name="vchDate" type="s:string" />
+    <wsdl:part name="vchTime" type="s:string" />
+    <wsdl:part name="vchRoom" type="s:string" />
+    <wsdl:part name="intNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogBy4KeyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAbnormalIDHttpGetIn">
+    <wsdl:part name="strMrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAbnormalIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdPtDataHttpGetIn">
+    <wsdl:part name="strPID" type="s:string" />
+    <wsdl:part name="strUserID" type="s:string" />
+    <wsdl:part name="strType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdPtDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsVirtualICPtHttpGetIn">
+    <wsdl:part name="vchMrno" type="s:string" />
+    <wsdl:part name="vchUserID" type="s:string" />
+    <wsdl:part name="vchDate" type="s:string" />
+    <wsdl:part name="vchTime" type="s:string" />
+    <wsdl:part name="vchRoom" type="s:string" />
+    <wsdl:part name="intNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsVirtualICPtHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="chkVirtualICPtHttpGetIn">
+    <wsdl:part name="vchMrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="chkVirtualICPtHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorizationHttpGetIn">
+    <wsdl:part name="vchMrno" type="s:string" />
+    <wsdl:part name="vchUser" type="s:string" />
+    <wsdl:part name="strType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorizationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorization_OnlineHttpGetIn">
+    <wsdl:part name="vchMrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorization_OnlineHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsSWKNOHttpGetIn">
+    <wsdl:part name="vchMrno" type="s:string" />
+    <wsdl:part name="vchUser" type="s:string" />
+    <wsdl:part name="blnDC" type="s:string" />
+    <wsdl:part name="strNote" type="s:string" />
+    <wsdl:part name="strSecno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsSWKNOHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ChkIllAreaHttpGetIn">
+    <wsdl:part name="m_mrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChkIllAreaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByWebHttpGetIn">
+    <wsdl:part name="strID" type="s:string" />
+    <wsdl:part name="strBirthday" type="s:string" />
+    <wsdl:part name="strSex" type="s:string" />
+    <wsdl:part name="strName" type="s:string" />
+    <wsdl:part name="strEName" type="s:string" />
+    <wsdl:part name="strTel" type="s:string" />
+    <wsdl:part name="strPassPort" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByWebHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByCovidHttpGetIn">
+    <wsdl:part name="strID" type="s:string" />
+    <wsdl:part name="strBirthday" type="s:string" />
+    <wsdl:part name="strName" type="s:string" />
+    <wsdl:part name="strTel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByCovidHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePatImageHttpPostIn">
+    <wsdl:part name="m_GetSysId" type="s:string" />
+    <wsdl:part name="m_GetCheckId" type="s:string" />
+    <wsdl:part name="m_PatientNo" type="s:string" />
+    <wsdl:part name="m_Scan" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePatImageHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsHttpPostIn">
+    <wsdl:part name="m_PatientNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicHttpPostIn">
+    <wsdl:part name="chmrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicByIDHttpPostIn">
+    <wsdl:part name="chid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfExitsOpdMrBasicByIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="IpdMergeMrnoHttpPostIn">
+    <wsdl:part name="m_mrno" type="s:string" />
+    <wsdl:part name="strtype" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IpdMergeMrnoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTwDrgsHttpPostIn">
+    <wsdl:part name="m_mrno" type="s:string" />
+    <wsdl:part name="strOutDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTwDrgsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="chkDrgAuthorizaTionHttpPostIn">
+    <wsdl:part name="strMrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="chkDrgAuthorizaTionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNewMrnoHttpPostIn" />
+  <wsdl:message name="GetNewMrnoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogHttpPostIn">
+    <wsdl:part name="vchUserID" type="s:string" />
+    <wsdl:part name="vchPCName" type="s:string" />
+    <wsdl:part name="vchPCIP" type="s:string" />
+    <wsdl:part name="vchAPI" type="s:string" />
+    <wsdl:part name="vchFunction" type="s:string" />
+    <wsdl:part name="vchMrNo" type="s:string" />
+    <wsdl:part name="vchNote" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogBy4KeyHttpPostIn">
+    <wsdl:part name="vchUserID" type="s:string" />
+    <wsdl:part name="vchPCName" type="s:string" />
+    <wsdl:part name="vchPCIP" type="s:string" />
+    <wsdl:part name="vchAPI" type="s:string" />
+    <wsdl:part name="vchFunction" type="s:string" />
+    <wsdl:part name="vchMrNo" type="s:string" />
+    <wsdl:part name="vchNote" type="s:string" />
+    <wsdl:part name="vchDate" type="s:string" />
+    <wsdl:part name="vchTime" type="s:string" />
+    <wsdl:part name="vchRoom" type="s:string" />
+    <wsdl:part name="intNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsMrnoLogBy4KeyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAbnormalIDHttpPostIn">
+    <wsdl:part name="strMrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAbnormalIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdPtDataHttpPostIn">
+    <wsdl:part name="strPID" type="s:string" />
+    <wsdl:part name="strUserID" type="s:string" />
+    <wsdl:part name="strType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdPtDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsVirtualICPtHttpPostIn">
+    <wsdl:part name="vchMrno" type="s:string" />
+    <wsdl:part name="vchUserID" type="s:string" />
+    <wsdl:part name="vchDate" type="s:string" />
+    <wsdl:part name="vchTime" type="s:string" />
+    <wsdl:part name="vchRoom" type="s:string" />
+    <wsdl:part name="intNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsVirtualICPtHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="chkVirtualICPtHttpPostIn">
+    <wsdl:part name="vchMrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="chkVirtualICPtHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorizationHttpPostIn">
+    <wsdl:part name="vchMrno" type="s:string" />
+    <wsdl:part name="vchUser" type="s:string" />
+    <wsdl:part name="strType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorizationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorization_OnlineHttpPostIn">
+    <wsdl:part name="vchMrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsDrgAuthorization_OnlineHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsSWKNOHttpPostIn">
+    <wsdl:part name="vchMrno" type="s:string" />
+    <wsdl:part name="vchUser" type="s:string" />
+    <wsdl:part name="blnDC" type="s:string" />
+    <wsdl:part name="strNote" type="s:string" />
+    <wsdl:part name="strSecno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsSWKNOHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ChkIllAreaHttpPostIn">
+    <wsdl:part name="m_mrno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChkIllAreaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByWebHttpPostIn">
+    <wsdl:part name="strID" type="s:string" />
+    <wsdl:part name="strBirthday" type="s:string" />
+    <wsdl:part name="strSex" type="s:string" />
+    <wsdl:part name="strName" type="s:string" />
+    <wsdl:part name="strEName" type="s:string" />
+    <wsdl:part name="strTel" type="s:string" />
+    <wsdl:part name="strPassPort" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByWebHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByCovidHttpPostIn">
+    <wsdl:part name="strID" type="s:string" />
+    <wsdl:part name="strBirthday" type="s:string" />
+    <wsdl:part name="strName" type="s:string" />
+    <wsdl:part name="strTel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsOpdMrBasicByCovidHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="UpdatePatImage">
+      <wsdl:input message="tns:UpdatePatImageSoapIn" />
+      <wsdl:output message="tns:UpdatePatImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExits">
+      <wsdl:input message="tns:CheckIfExitsSoapIn" />
+      <wsdl:output message="tns:CheckIfExitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasic">
+      <wsdl:input message="tns:CheckIfExitsOpdMrBasicSoapIn" />
+      <wsdl:output message="tns:CheckIfExitsOpdMrBasicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasicByID">
+      <wsdl:input message="tns:CheckIfExitsOpdMrBasicByIDSoapIn" />
+      <wsdl:output message="tns:CheckIfExitsOpdMrBasicByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IpdMergeMrno">
+      <wsdl:input message="tns:IpdMergeMrnoSoapIn" />
+      <wsdl:output message="tns:IpdMergeMrnoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTwDrgs">
+      <wsdl:input message="tns:GetTwDrgsSoapIn" />
+      <wsdl:output message="tns:GetTwDrgsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chkDrgAuthorizaTion">
+      <wsdl:input message="tns:chkDrgAuthorizaTionSoapIn" />
+      <wsdl:output message="tns:chkDrgAuthorizaTionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMrno">
+      <wsdl:input message="tns:GetNewMrnoSoapIn" />
+      <wsdl:output message="tns:GetNewMrnoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLog">
+      <wsdl:input message="tns:InsMrnoLogSoapIn" />
+      <wsdl:output message="tns:InsMrnoLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLogBy4Key">
+      <wsdl:input message="tns:InsMrnoLogBy4KeySoapIn" />
+      <wsdl:output message="tns:InsMrnoLogBy4KeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormalID">
+      <wsdl:input message="tns:GetAbnormalIDSoapIn" />
+      <wsdl:output message="tns:GetAbnormalIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdPtData">
+      <wsdl:input message="tns:UpdPtDataSoapIn" />
+      <wsdl:output message="tns:UpdPtDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsVirtualICPt">
+      <wsdl:input message="tns:InsVirtualICPtSoapIn" />
+      <wsdl:output message="tns:InsVirtualICPtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chkVirtualICPt">
+      <wsdl:input message="tns:chkVirtualICPtSoapIn" />
+      <wsdl:output message="tns:chkVirtualICPtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization">
+      <wsdl:input message="tns:InsDrgAuthorizationSoapIn" />
+      <wsdl:output message="tns:InsDrgAuthorizationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization_Online">
+      <wsdl:input message="tns:InsDrgAuthorization_OnlineSoapIn" />
+      <wsdl:output message="tns:InsDrgAuthorization_OnlineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsSWKNO">
+      <wsdl:input message="tns:InsSWKNOSoapIn" />
+      <wsdl:output message="tns:InsSWKNOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChkIllArea">
+      <wsdl:input message="tns:ChkIllAreaSoapIn" />
+      <wsdl:output message="tns:ChkIllAreaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByWeb">
+      <wsdl:input message="tns:InsOpdMrBasicByWebSoapIn" />
+      <wsdl:output message="tns:InsOpdMrBasicByWebSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByCovid">
+      <wsdl:input message="tns:InsOpdMrBasicByCovidSoapIn" />
+      <wsdl:output message="tns:InsOpdMrBasicByCovidSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpGet">
+    <wsdl:operation name="UpdatePatImage">
+      <wsdl:input message="tns:UpdatePatImageHttpGetIn" />
+      <wsdl:output message="tns:UpdatePatImageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExits">
+      <wsdl:input message="tns:CheckIfExitsHttpGetIn" />
+      <wsdl:output message="tns:CheckIfExitsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasic">
+      <wsdl:input message="tns:CheckIfExitsOpdMrBasicHttpGetIn" />
+      <wsdl:output message="tns:CheckIfExitsOpdMrBasicHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasicByID">
+      <wsdl:input message="tns:CheckIfExitsOpdMrBasicByIDHttpGetIn" />
+      <wsdl:output message="tns:CheckIfExitsOpdMrBasicByIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IpdMergeMrno">
+      <wsdl:input message="tns:IpdMergeMrnoHttpGetIn" />
+      <wsdl:output message="tns:IpdMergeMrnoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTwDrgs">
+      <wsdl:input message="tns:GetTwDrgsHttpGetIn" />
+      <wsdl:output message="tns:GetTwDrgsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chkDrgAuthorizaTion">
+      <wsdl:input message="tns:chkDrgAuthorizaTionHttpGetIn" />
+      <wsdl:output message="tns:chkDrgAuthorizaTionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMrno">
+      <wsdl:input message="tns:GetNewMrnoHttpGetIn" />
+      <wsdl:output message="tns:GetNewMrnoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLog">
+      <wsdl:input message="tns:InsMrnoLogHttpGetIn" />
+      <wsdl:output message="tns:InsMrnoLogHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLogBy4Key">
+      <wsdl:input message="tns:InsMrnoLogBy4KeyHttpGetIn" />
+      <wsdl:output message="tns:InsMrnoLogBy4KeyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormalID">
+      <wsdl:input message="tns:GetAbnormalIDHttpGetIn" />
+      <wsdl:output message="tns:GetAbnormalIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdPtData">
+      <wsdl:input message="tns:UpdPtDataHttpGetIn" />
+      <wsdl:output message="tns:UpdPtDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsVirtualICPt">
+      <wsdl:input message="tns:InsVirtualICPtHttpGetIn" />
+      <wsdl:output message="tns:InsVirtualICPtHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chkVirtualICPt">
+      <wsdl:input message="tns:chkVirtualICPtHttpGetIn" />
+      <wsdl:output message="tns:chkVirtualICPtHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization">
+      <wsdl:input message="tns:InsDrgAuthorizationHttpGetIn" />
+      <wsdl:output message="tns:InsDrgAuthorizationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization_Online">
+      <wsdl:input message="tns:InsDrgAuthorization_OnlineHttpGetIn" />
+      <wsdl:output message="tns:InsDrgAuthorization_OnlineHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsSWKNO">
+      <wsdl:input message="tns:InsSWKNOHttpGetIn" />
+      <wsdl:output message="tns:InsSWKNOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChkIllArea">
+      <wsdl:input message="tns:ChkIllAreaHttpGetIn" />
+      <wsdl:output message="tns:ChkIllAreaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByWeb">
+      <wsdl:input message="tns:InsOpdMrBasicByWebHttpGetIn" />
+      <wsdl:output message="tns:InsOpdMrBasicByWebHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByCovid">
+      <wsdl:input message="tns:InsOpdMrBasicByCovidHttpGetIn" />
+      <wsdl:output message="tns:InsOpdMrBasicByCovidHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpPost">
+    <wsdl:operation name="UpdatePatImage">
+      <wsdl:input message="tns:UpdatePatImageHttpPostIn" />
+      <wsdl:output message="tns:UpdatePatImageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExits">
+      <wsdl:input message="tns:CheckIfExitsHttpPostIn" />
+      <wsdl:output message="tns:CheckIfExitsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasic">
+      <wsdl:input message="tns:CheckIfExitsOpdMrBasicHttpPostIn" />
+      <wsdl:output message="tns:CheckIfExitsOpdMrBasicHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasicByID">
+      <wsdl:input message="tns:CheckIfExitsOpdMrBasicByIDHttpPostIn" />
+      <wsdl:output message="tns:CheckIfExitsOpdMrBasicByIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IpdMergeMrno">
+      <wsdl:input message="tns:IpdMergeMrnoHttpPostIn" />
+      <wsdl:output message="tns:IpdMergeMrnoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTwDrgs">
+      <wsdl:input message="tns:GetTwDrgsHttpPostIn" />
+      <wsdl:output message="tns:GetTwDrgsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chkDrgAuthorizaTion">
+      <wsdl:input message="tns:chkDrgAuthorizaTionHttpPostIn" />
+      <wsdl:output message="tns:chkDrgAuthorizaTionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMrno">
+      <wsdl:input message="tns:GetNewMrnoHttpPostIn" />
+      <wsdl:output message="tns:GetNewMrnoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLog">
+      <wsdl:input message="tns:InsMrnoLogHttpPostIn" />
+      <wsdl:output message="tns:InsMrnoLogHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLogBy4Key">
+      <wsdl:input message="tns:InsMrnoLogBy4KeyHttpPostIn" />
+      <wsdl:output message="tns:InsMrnoLogBy4KeyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormalID">
+      <wsdl:input message="tns:GetAbnormalIDHttpPostIn" />
+      <wsdl:output message="tns:GetAbnormalIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdPtData">
+      <wsdl:input message="tns:UpdPtDataHttpPostIn" />
+      <wsdl:output message="tns:UpdPtDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsVirtualICPt">
+      <wsdl:input message="tns:InsVirtualICPtHttpPostIn" />
+      <wsdl:output message="tns:InsVirtualICPtHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chkVirtualICPt">
+      <wsdl:input message="tns:chkVirtualICPtHttpPostIn" />
+      <wsdl:output message="tns:chkVirtualICPtHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization">
+      <wsdl:input message="tns:InsDrgAuthorizationHttpPostIn" />
+      <wsdl:output message="tns:InsDrgAuthorizationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization_Online">
+      <wsdl:input message="tns:InsDrgAuthorization_OnlineHttpPostIn" />
+      <wsdl:output message="tns:InsDrgAuthorization_OnlineHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsSWKNO">
+      <wsdl:input message="tns:InsSWKNOHttpPostIn" />
+      <wsdl:output message="tns:InsSWKNOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChkIllArea">
+      <wsdl:input message="tns:ChkIllAreaHttpPostIn" />
+      <wsdl:output message="tns:ChkIllAreaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByWeb">
+      <wsdl:input message="tns:InsOpdMrBasicByWebHttpPostIn" />
+      <wsdl:output message="tns:InsOpdMrBasicByWebHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByCovid">
+      <wsdl:input message="tns:InsOpdMrBasicByCovidHttpPostIn" />
+      <wsdl:output message="tns:InsOpdMrBasicByCovidHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdatePatImage">
+      <soap:operation soapAction="http://tempuri.org/UpdatePatImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExits">
+      <soap:operation soapAction="http://tempuri.org/CheckIfExits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasic">
+      <soap:operation soapAction="http://tempuri.org/CheckIfExitsOpdMrBasic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasicByID">
+      <soap:operation soapAction="http://tempuri.org/CheckIfExitsOpdMrBasicByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IpdMergeMrno">
+      <soap:operation soapAction="http://tempuri.org/IpdMergeMrno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTwDrgs">
+      <soap:operation soapAction="http://tempuri.org/GetTwDrgs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkDrgAuthorizaTion">
+      <soap:operation soapAction="http://tempuri.org/chkDrgAuthorizaTion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMrno">
+      <soap:operation soapAction="http://tempuri.org/GetNewMrno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLog">
+      <soap:operation soapAction="http://tempuri.org/InsMrnoLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLogBy4Key">
+      <soap:operation soapAction="http://tempuri.org/InsMrnoLogBy4Key" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormalID">
+      <soap:operation soapAction="http://tempuri.org/GetAbnormalID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdPtData">
+      <soap:operation soapAction="http://tempuri.org/UpdPtData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsVirtualICPt">
+      <soap:operation soapAction="http://tempuri.org/InsVirtualICPt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkVirtualICPt">
+      <soap:operation soapAction="http://tempuri.org/chkVirtualICPt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization">
+      <soap:operation soapAction="http://tempuri.org/InsDrgAuthorization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization_Online">
+      <soap:operation soapAction="http://tempuri.org/InsDrgAuthorization_Online" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsSWKNO">
+      <soap:operation soapAction="http://tempuri.org/InsSWKNO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChkIllArea">
+      <soap:operation soapAction="http://tempuri.org/ChkIllArea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByWeb">
+      <soap:operation soapAction="http://tempuri.org/InsOpdMrBasicByWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByCovid">
+      <soap:operation soapAction="http://tempuri.org/InsOpdMrBasicByCovid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdatePatImage">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePatImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExits">
+      <soap12:operation soapAction="http://tempuri.org/CheckIfExits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasic">
+      <soap12:operation soapAction="http://tempuri.org/CheckIfExitsOpdMrBasic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasicByID">
+      <soap12:operation soapAction="http://tempuri.org/CheckIfExitsOpdMrBasicByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IpdMergeMrno">
+      <soap12:operation soapAction="http://tempuri.org/IpdMergeMrno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTwDrgs">
+      <soap12:operation soapAction="http://tempuri.org/GetTwDrgs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkDrgAuthorizaTion">
+      <soap12:operation soapAction="http://tempuri.org/chkDrgAuthorizaTion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMrno">
+      <soap12:operation soapAction="http://tempuri.org/GetNewMrno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLog">
+      <soap12:operation soapAction="http://tempuri.org/InsMrnoLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLogBy4Key">
+      <soap12:operation soapAction="http://tempuri.org/InsMrnoLogBy4Key" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormalID">
+      <soap12:operation soapAction="http://tempuri.org/GetAbnormalID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdPtData">
+      <soap12:operation soapAction="http://tempuri.org/UpdPtData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsVirtualICPt">
+      <soap12:operation soapAction="http://tempuri.org/InsVirtualICPt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkVirtualICPt">
+      <soap12:operation soapAction="http://tempuri.org/chkVirtualICPt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization">
+      <soap12:operation soapAction="http://tempuri.org/InsDrgAuthorization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization_Online">
+      <soap12:operation soapAction="http://tempuri.org/InsDrgAuthorization_Online" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsSWKNO">
+      <soap12:operation soapAction="http://tempuri.org/InsSWKNO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChkIllArea">
+      <soap12:operation soapAction="http://tempuri.org/ChkIllArea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByWeb">
+      <soap12:operation soapAction="http://tempuri.org/InsOpdMrBasicByWeb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByCovid">
+      <soap12:operation soapAction="http://tempuri.org/InsOpdMrBasicByCovid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpGet" type="tns:ServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="UpdatePatImage">
+      <http:operation location="/UpdatePatImage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExits">
+      <http:operation location="/CheckIfExits" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasic">
+      <http:operation location="/CheckIfExitsOpdMrBasic" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasicByID">
+      <http:operation location="/CheckIfExitsOpdMrBasicByID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IpdMergeMrno">
+      <http:operation location="/IpdMergeMrno" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTwDrgs">
+      <http:operation location="/GetTwDrgs" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkDrgAuthorizaTion">
+      <http:operation location="/chkDrgAuthorizaTion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMrno">
+      <http:operation location="/GetNewMrno" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLog">
+      <http:operation location="/InsMrnoLog" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLogBy4Key">
+      <http:operation location="/InsMrnoLogBy4Key" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormalID">
+      <http:operation location="/GetAbnormalID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdPtData">
+      <http:operation location="/UpdPtData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsVirtualICPt">
+      <http:operation location="/InsVirtualICPt" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkVirtualICPt">
+      <http:operation location="/chkVirtualICPt" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization">
+      <http:operation location="/InsDrgAuthorization" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization_Online">
+      <http:operation location="/InsDrgAuthorization_Online" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsSWKNO">
+      <http:operation location="/InsSWKNO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChkIllArea">
+      <http:operation location="/ChkIllArea" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByWeb">
+      <http:operation location="/InsOpdMrBasicByWeb" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByCovid">
+      <http:operation location="/InsOpdMrBasicByCovid" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpPost" type="tns:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="UpdatePatImage">
+      <http:operation location="/UpdatePatImage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExits">
+      <http:operation location="/CheckIfExits" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasic">
+      <http:operation location="/CheckIfExitsOpdMrBasic" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfExitsOpdMrBasicByID">
+      <http:operation location="/CheckIfExitsOpdMrBasicByID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IpdMergeMrno">
+      <http:operation location="/IpdMergeMrno" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTwDrgs">
+      <http:operation location="/GetTwDrgs" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkDrgAuthorizaTion">
+      <http:operation location="/chkDrgAuthorizaTion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMrno">
+      <http:operation location="/GetNewMrno" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLog">
+      <http:operation location="/InsMrnoLog" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsMrnoLogBy4Key">
+      <http:operation location="/InsMrnoLogBy4Key" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormalID">
+      <http:operation location="/GetAbnormalID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdPtData">
+      <http:operation location="/UpdPtData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsVirtualICPt">
+      <http:operation location="/InsVirtualICPt" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkVirtualICPt">
+      <http:operation location="/chkVirtualICPt" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization">
+      <http:operation location="/InsDrgAuthorization" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsDrgAuthorization_Online">
+      <http:operation location="/InsDrgAuthorization_Online" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsSWKNO">
+      <http:operation location="/InsSWKNO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChkIllArea">
+      <http:operation location="/ChkIllArea" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByWeb">
+      <http:operation location="/InsOpdMrBasicByWeb" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsOpdMrBasicByCovid">
+      <http:operation location="/InsOpdMrBasicByCovid" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="https://webap.femh.org.tw:9005/UpdatePatImage/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="https://webap.femh.org.tw:9005/UpdatePatImage/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpGet" binding="tns:ServiceHttpGet">
+      <http:address location="https://webap.femh.org.tw:9005/UpdatePatImage/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
+      <http:address location="https://webap.femh.org.tw:9005/UpdatePatImage/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

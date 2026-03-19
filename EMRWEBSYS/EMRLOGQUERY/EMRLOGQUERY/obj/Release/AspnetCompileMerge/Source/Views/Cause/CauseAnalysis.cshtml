@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
+            width: auto; /* Adjust the width as needed */
+        }
+
+
+        /*#ff {
+            margin: 20pt 25pt;*/ /* 上下 5pt，左右 20pt */
+            /*padding: 10px;*/ /* 添加內邊距，可根據需要調整 */
+            /*border: 1px solid #ccc;*/ /* 添加邊框 */
+            /*border-radius: 5px;*/ /* 可選的，用於使邊框有圓角 */
+            /*display: flex;*/ /* 使用 flexbox 排列元素 */
+            /*flex-wrap: wrap;*/ /* 換行 */
+            /*justify-content: space-between;*/ /* 左右對齊，中間空隙平均分布 */
+        /*}*/
+
+        #ff {
+            margin: 20pt 25pt;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center; /* 讓 fieldset 水平置中 */
+            flex-wrap: wrap; /* 換行顯示 */
+            gap: 20px; /* 兩個 fieldset 之間的間距 */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+
+        legend {
+            letter-spacing: 4px; /* 調整 letter-spacing 的數值以達到您想要的分散效果 */
+            font-weight: bold;
+        }
+
+        .spaced-text {
+            letter-spacing: 2px;
+        }
+
+        .radio-label {
+            text-align: justify;
+            text-align-last: justify; /* 考慮使用 text-align-last: justify; */
+            display: inline-block;
+            width: 100pt;
+            margin-right: 10px; /* 調整文字右邊距，可以根據需求調整 */
+            font-size: 13pt;
+        }
+
+        /*fieldset {
+            margin-right: 10pt;*/ /* 兩個 fieldset 之間的間隙為10pt */
+            /*margin-bottom: 5pt;*/ /* 添加底邊距 */
+            /*margin-left: 10pt;
+        }*/
+
+
+        fieldset {
+            min-width: 230px;
+            flex: 1; /* 平均佔滿空間 */
+        }
+        #remarks {
+            flex-grow: 1; /* 使用 flex-grow 屬性讓備註欄擴展填滿剩餘空間 */
+            margin-bottom: 20px;
+        }
+
+            #remarks textarea {
+                width: 100%; /* 考慮 padding，使用 calc 計算寬度 */
+                max-width: 100%;
+                height: 100px;
+                resize: vertical;
+                overflow-y: auto;
+            }
+
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /*.easyui-linkbutton {
+            width: 100pt;
+            height: 25pt;
+            max-height: 25pt;
+            font-weight: 800;
+            font-size: 14pt;
+            margin: 0 10px;*/ /* Adjust the margin as needed */
+        /*}*/
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 兩欄平均寬度 */
+            gap: 10px 20px; /* 上下10px，左右20px間距 */
+            margin-top: 10px;
+        }
+
+            .two-column > div {
+                display: flex;
+                align-items: center;
+            }
+
+        .radio-label {
+            margin-left: 8px;
+            font-size: 13pt;
+        }
+
+
+    </style>
+
+    <script>
+        async function showCausWindowDialog() {
+            // 打开窗口并返回 Promise
+            return new Promise((resolve) => {   
+
+                $('#EMRCausWindow').window('open');
+
+                // 绑定按钮点击行为
+                $('#confirmBtn').off('click').on('click', function () {
+
+                    var selectedValue = $('input[name="fruit"]:checked').val(); // Assuming you have radio buttons with name "fruit"
+                    var remarksContent = $('#remarks textarea').val();
+
+                    if (selectedValue !== undefined && selectedValue !== null && selectedValue !== '') {
+
+                        if (selectedValue == '其他' && (remarksContent == undefined || remarksContent == null || remarksContent == '')) {
+
+                            resolve({
+                                isConfirmed: false,
+                                selectedValue: '',
+                                remarksContent: ''
+                            });
+
+                            $.messager.alert('info', '當原因選擇【其他】，<br> 必須要在【備註裡填寫詳細內容】。', 'info');
+                        }
+                        else {
+                            // 成功确认，返回 true 并附带所需数据
+                            resolve({
+                                isConfirmed: true,
+                                selectedValue: selectedValue,
+                                remarksContent: remarksContent
+                            });
+
+                            $('#EMRCausWindow').window('close');
+                        }
+
+                    }
+                    else {
+
+                        resolve({
+                            isConfirmed: false,
+                            selectedValue: '',
+                            remarksContent: ''
+                        });
+
+                        $.messager.alert('info', '調閱原因必須輸入。', 'info');
+                    }
+
+                
+                  
+                });
+
+                $('#cancelBtn').off('click').on('click', function () {
+
+                    resolve({
+                        isConfirmed: false,
+                        selectedValue: '',
+                        remarksContent: ''
+                    });
+
+                    $('#EMRCausWindow').window('close');
+                   
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <div id="EMRCausWindow" class="easyui-window" title="EMR Cause" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500pt; min-height:400pt;">
+
+        <div id="CauseWindow">
+            <form>
+
+                <div id="ff">
+                    <fieldset>
+                        <legend>請輸入原因</legend>
+                        <div class="two-column">
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="轉診">
+                                <label class="radio-label">轉診</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="保險申請">
+                                <label class="radio-label">保險申請</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="健保作業">
+                                <label class="radio-label">健保作業</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="院內(研究)">
+                                <label class="radio-label">院內(研究)</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="疾病分類">
+                                <label class="radio-label">疾病分類</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="院內(其他)">
+                                <label class="radio-label">院內(其他)</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="公文回覆">
+                                <label class="radio-label">公文回覆</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="檢調單位">
+                                <label class="radio-label">檢調單位</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="本人申請">
+                                <label class="radio-label">本人申請</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="衛生主管">
+                                <label class="radio-label">衛生主管</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="委託申請">
+                                <label class="radio-label">委託申請</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="系統管理">
+                                <label class="radio-label">系統管理</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="病歷審查">
+                                <label class="radio-label">病歷審查</label>
+                            </div>
+                            <div>
+                                <input class="easyui-radiobutton" name="fruit" value="其他">
+                                <label class="radio-label">其他</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+            </form>
+
+
+            <div id="remarks" style="margin: 20pt 20pt;">
+                <div><label style="font-size:14pt">備註:</label></div>
+                <div>
+                    <textarea></textarea>
+                </div>
+
+                <p></p>
+                <div class="button-container">
+                    <a id="cancelBtn" href="#" style="width:100pt;max-width:100pt;   margin-right:10pt" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">取 消</a>
+                    <a id="confirmBtn" href="#" style="width:100pt;max-width:100pt; margin-left: 10pt" class="easyui-linkbutton" data-options="iconCls:'icon-save'">確 認</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

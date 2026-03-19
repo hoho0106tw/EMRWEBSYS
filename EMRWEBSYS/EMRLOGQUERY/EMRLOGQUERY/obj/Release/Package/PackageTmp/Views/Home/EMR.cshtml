@@ -1,0 +1,92 @@
+﻿
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        function resizeLayout() {
+            let window_width = window.innerWidth * 0.95;
+            let panels_size = window_width * 0.4;
+            let window_height = window.innerHeight * 0.95;
+
+            $('#easyuilayout').layout('resize', {
+                height: window_height
+            });
+        }
+
+        // 初始調整
+        resizeLayout();
+
+        // 監聽視窗大小變更事件
+        $(window).resize(function () {
+            resizeLayout();
+        });
+    });
+</script>
+
+
+<script>
+    $(function () {
+        // 初始判斷
+        let currentTitle = $('#mainTabs').tabs('getSelected').panel('options').title;
+        toggleSignSection(currentTitle);
+
+        // 切換時判斷
+        $('#mainTabs').tabs({
+            onSelect: function (title) {
+                toggleSignSection(title);
+            }
+        });
+
+        function toggleSignSection(title) {
+            if (title === '監控中心') {
+                $('#signSection').show();
+            } else {
+                $('#signSection').hide();
+            }
+        }
+    });
+</script>
+
+
+<div class="easyui-layout" id="easyuilayout" style="width: 100%; height: 100vh; position: absolute; top: 15px; margin: auto; font-family: 微軟正黑體, sans-serif; ">
+
+    <div data-options="region:'north',split:true" title="Condition Search" style="width:100%;height:100px;">
+        @*@Html.Partial("~/Views/Home/component/SearchPanel.cshtml")*@
+        <div style="display: none; display: flex; align-items: center; gap: 10px;">
+            <!-- 簽章選項區塊 -->
+            <div id="signSection" style="margin-left: 10px; margin-top: 5px;" class="row align-items-center">
+
+                <div class="col-auto" id="signLabel">簽章:</div>
+                <div class="col-auto" id="signCombo">
+                    <select class="easyui-combobox" name="IsSigned" id="combsign_EMR" style="width:100px;">
+                        <option value="ALL" selected>ALL</option>
+                        <option value="Y">是</option>
+                        <option value="N">否</option>
+                        <option value="FemhSign">醫院簽章</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                @{ Html.RenderPartial("~/Views/Home/component/SearchPanel.cshtml", new ViewDataDictionary { { "UniqueId", "EMR" } }); }
+            </div>
+        </div>
+    </div>
+
+    <div data-options="region:'center',split:true" title="" style="width:100%;height:90%;">
+        <div class="easyui-tabs" id="mainTabs" style="width:100%; height:100%;">
+            <!-- 監控中心 Tab -->
+            <div title="監控中心" style="padding:10px;">
+                @Html.Partial("~/Views/Home/component/EMRHIS.cshtml")
+            </div>
+            <!-- 收發作業 Tab -->
+            <div title="收發作業" style="padding:10px;">
+                @Html.Partial("~/Views/Home/component/ReleaseEMR.cshtml")
+                <!-- Content for 收發作業 Tab can be added here -->
+            </div>
+        </div>
+        @Html.Partial("~/Views/Home/component/jqxNotification.cshtml")
+        @Html.Partial("~/Views/Home/component/_ShowProgress.cshtml", new ViewDataDictionary { { "UniqueId", "EMR" } })
+        @Html.Partial("~/Views/Cause/CauseAnalysis.cshtml")
+    </div>
+</div>
+
+

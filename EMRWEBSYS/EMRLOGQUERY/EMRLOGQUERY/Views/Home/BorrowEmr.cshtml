@@ -1,0 +1,100 @@
+﻿
+<script type="text/javascript">
+    $(document).ready(function () {
+        // 1. Resize layout on load and resize
+        function resizeLayout() {
+            let window_width = window.innerWidth * 0.95;
+            let panels_size = window_width * 0.4;
+            let window_height = window.innerHeight * 0.95;
+
+            $('#easyuilayout').layout('resize', {
+                height: window_height
+            });
+        }
+
+        resizeLayout();
+        $(window).resize(resizeLayout);
+        // 2. Trigger AJAX on page load
+       const url = '@Html.Raw(@Url.Action("BorrowEmrSearch", "component"))';
+
+        var model = {
+            // 初始化你的資料內容（範例）
+            // ID: 1, Name: "Default"
+        };
+
+        $.ajax({
+            url: url,
+            data: JSON.stringify(model),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            async: true,
+            success: function (response) {
+                if (response.msg.MSG != null) {
+                    showMessage("提示訊息", response.msg.MSG);
+                    loadDataIntoJqxTree("#jqxTree2", null);
+                } else {
+                    loadDataIntoJqxTree("#jqxTree2", response.data);
+                }
+                if (response.isPrint == "Y") {
+                    $("#printSection").show();
+                }
+                else {
+                    $("#printSection").hide();
+                }
+
+
+            },
+            error: function (xhr, status, error) {
+                $.messager.alert("Error", "失敗: " + xhr.responseText, "error");
+            }
+        });
+
+        // 3. Tree loader function
+        function loadDataIntoJqxTree(selector, data) {
+            if (data === null) {
+                $(selector).jqxTree('clear');
+                 $("#ContentPanel2").html('');
+
+            } else {
+                $(selector).jqxTree({
+                    source: data,
+                    checkboxes: true,
+                    theme: "summer",
+                    width: "100%",
+                    height: "100%"
+                });
+            }
+
+            $(selector).jqxTree('refresh');
+        }
+    });
+
+    function showMessage(title, message) {
+        $.messager.show({
+            title: title,
+            msg: message,
+            showType: "show",
+        });
+    }
+</script>
+
+
+<div class="easyui-layout" id="easyuilayout" style="width: 100%; height: 100vh; position: absolute; top: 15px; margin: auto; font-family: 微軟正黑體, sans-serif; ">
+
+    <div data-options="region:'center',split:true" title="" style="width:100%;height:90%;">
+        <div class="easyui-tabs" id="mainTabs" style="width:100%; height:100%;">
+
+            <!-- 收發作業 Tab -->
+            <div title="收發作業" style="padding:10px;">
+                @Html.Partial("~/Views/Home/component/ReleaseEMR.cshtml")
+                <!-- Content for 收發作業 Tab can be added here -->
+            </div>
+        </div>
+        @Html.Partial("~/Views/Home/component/jqxNotification.cshtml")
+        @Html.Partial("~/Views/Home/component/_ShowProgress.cshtml", new ViewDataDictionary { { "UniqueId", "BorrowEmr" } })
+        @Html.Partial("~/Views/Cause/CauseAnalysis.cshtml")
+    </div>
+</div>
+
+
+

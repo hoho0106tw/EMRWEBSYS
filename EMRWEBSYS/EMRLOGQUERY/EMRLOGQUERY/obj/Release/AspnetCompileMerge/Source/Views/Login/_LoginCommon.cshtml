@@ -1,0 +1,74 @@
+﻿
+@model  EMRLOGQUERY.ViewModels.ModelLogin
+@{
+    Boolean isChrome = EMRLOGQUERY.Models.CommonFunction.isChrome();
+
+    if (EMRLOGQUERY.Models.CommonFunction.isChrome())
+    {
+        ViewBag.Browser = "你正使用 [ Google Chrome ] 瀏覽器";
+    }
+    else
+    {
+        ViewBag.Browser = "建議使用 [ <span style=\"color: red;\">Google Chrome</span> ] 瀏覽器";
+    }
+
+}
+<style type="text/css">
+    .sub-title-femh {
+        color: green;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .sub-title-pacs {
+        color: #808080;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .stealthy {
+        left: 0;
+        margin: 0;
+        max-height: 1px;
+        max-width: 1px;
+        opacity: 0;
+        outline: none;
+        overflow: hidden;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+</style>
+<div class="row">
+
+
+    <div class="col-md-4 col-lg-3 visible-md visible-lg" style="text-align:center;">
+        <div style="margin-top:.0em;text-align:center;"><img src="~/images/femh_logo_1.gif" /></div>
+        <div style="text-align:center;">
+            <div class="sub-title-femh" style="margin-top:4em;">Far Eastern Memorial Hospital</div>
+            <div class="sub-title-pacs" style="margin-top:1em;">EMR System( Ver 2025-08-01)</div>
+
+
+        </div>
+    </div>
+
+    <div class="col-md-1 col-lg-1 visible-md visible-lg"></div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+        <div class="container-fluid">
+            <label for="userid">員工編號<span style="color:red;padding-left:1em;font-weight:400;">@Html.ValidationMessageFor(m=> m.userid)</span></label>@Html.EditorFor(m => m.userid, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="container-fluid" style="margin-top:1em;">
+            <input type="password" class="stealthy" tabindex="-1">
+            <label for="userid">密碼 <span style="color:royalblue;">(醫療系統)</span><span style="color:red;padding-left:1em;font-weight:400;">@Html.ValidationMessageFor(m => m.password)</span></label>@Html.EditorFor(m => m.password, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+            <input type="password" class="stealthy" tabindex="-1">
+        </div>
+        <div class="container-fluid" style="margin-top:2em;">
+            <button type="submit" id="login-submit" class="btn btn-large btn-block btn-my-red full-width;" style="border-radius:12px;width:280px">登入<span class="glyphicon glyphicon-play" style="margin-left:.5em;"></span></button>
+        </div>
+        <div style="height:2.5em;"><div id="login-ok" style="display:none;color:red;padding-left:2em;padding-top:1em;">Login OK, wait for processing.......</div></div>
+      
+    </div>
+</div>

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="VIEW">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stylesheet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VIEWResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VIEWResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VIEW2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stylesheet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EMR_SysKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VIEW2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VIEW2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VIEW20190516">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EMR_SysKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VIEW20190516Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VIEW20190516Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDFCHECKER">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EMR_SysKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDFCHECKERResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PDFCHECKERResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CHECKMR02001FID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FILEPATH" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CHECKMR02001FIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CHECKMR02001FIDResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDFTOHTML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDFTOHTMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PDFTOHTMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HISVIEW">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EMR_SysKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HISVIEWResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HISVIEWResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GENEMRPDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EMR_SysKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GENEMRPDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GENEMRPDFResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VIEW20230403">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VIEW20230403Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VIEW20230403Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VIEWSoapIn">
+    <wsdl:part name="parameters" element="tns:VIEW" />
+  </wsdl:message>
+  <wsdl:message name="VIEWSoapOut">
+    <wsdl:part name="parameters" element="tns:VIEWResponse" />
+  </wsdl:message>
+  <wsdl:message name="VIEW2SoapIn">
+    <wsdl:part name="parameters" element="tns:VIEW2" />
+  </wsdl:message>
+  <wsdl:message name="VIEW2SoapOut">
+    <wsdl:part name="parameters" element="tns:VIEW2Response" />
+  </wsdl:message>
+  <wsdl:message name="VIEW20190516SoapIn">
+    <wsdl:part name="parameters" element="tns:VIEW20190516" />
+  </wsdl:message>
+  <wsdl:message name="VIEW20190516SoapOut">
+    <wsdl:part name="parameters" element="tns:VIEW20190516Response" />
+  </wsdl:message>
+  <wsdl:message name="PDFCHECKERSoapIn">
+    <wsdl:part name="parameters" element="tns:PDFCHECKER" />
+  </wsdl:message>
+  <wsdl:message name="PDFCHECKERSoapOut">
+    <wsdl:part name="parameters" element="tns:PDFCHECKERResponse" />
+  </wsdl:message>
+  <wsdl:message name="CHECKMR02001FIDSoapIn">
+    <wsdl:part name="parameters" element="tns:CHECKMR02001FID" />
+  </wsdl:message>
+  <wsdl:message name="CHECKMR02001FIDSoapOut">
+    <wsdl:part name="parameters" element="tns:CHECKMR02001FIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PDFTOHTMLSoapIn">
+    <wsdl:part name="parameters" element="tns:PDFTOHTML" />
+  </wsdl:message>
+  <wsdl:message name="PDFTOHTMLSoapOut">
+    <wsdl:part name="parameters" element="tns:PDFTOHTMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="HISVIEWSoapIn">
+    <wsdl:part name="parameters" element="tns:HISVIEW" />
+  </wsdl:message>
+  <wsdl:message name="HISVIEWSoapOut">
+    <wsdl:part name="parameters" element="tns:HISVIEWResponse" />
+  </wsdl:message>
+  <wsdl:message name="GENEMRPDFSoapIn">
+    <wsdl:part name="parameters" element="tns:GENEMRPDF" />
+  </wsdl:message>
+  <wsdl:message name="GENEMRPDFSoapOut">
+    <wsdl:part name="parameters" element="tns:GENEMRPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="VIEW20230403SoapIn">
+    <wsdl:part name="parameters" element="tns:VIEW20230403" />
+  </wsdl:message>
+  <wsdl:message name="VIEW20230403SoapOut">
+    <wsdl:part name="parameters" element="tns:VIEW20230403Response" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="VIEW">
+      <wsdl:input message="tns:VIEWSoapIn" />
+      <wsdl:output message="tns:VIEWSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VIEW2">
+      <wsdl:input message="tns:VIEW2SoapIn" />
+      <wsdl:output message="tns:VIEW2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VIEW20190516">
+      <wsdl:input message="tns:VIEW20190516SoapIn" />
+      <wsdl:output message="tns:VIEW20190516SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PDFCHECKER">
+      <wsdl:input message="tns:PDFCHECKERSoapIn" />
+      <wsdl:output message="tns:PDFCHECKERSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CHECKMR02001FID">
+      <wsdl:input message="tns:CHECKMR02001FIDSoapIn" />
+      <wsdl:output message="tns:CHECKMR02001FIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PDFTOHTML">
+      <wsdl:input message="tns:PDFTOHTMLSoapIn" />
+      <wsdl:output message="tns:PDFTOHTMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HISVIEW">
+      <wsdl:input message="tns:HISVIEWSoapIn" />
+      <wsdl:output message="tns:HISVIEWSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GENEMRPDF">
+      <wsdl:input message="tns:GENEMRPDFSoapIn" />
+      <wsdl:output message="tns:GENEMRPDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VIEW20230403">
+      <wsdl:input message="tns:VIEW20230403SoapIn" />
+      <wsdl:output message="tns:VIEW20230403SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VIEW">
+      <soap:operation soapAction="http://tempuri.org/VIEW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VIEW2">
+      <soap:operation soapAction="http://tempuri.org/VIEW2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VIEW20190516">
+      <soap:operation soapAction="http://tempuri.org/VIEW20190516" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDFCHECKER">
+      <soap:operation soapAction="http://tempuri.org/PDFCHECKER" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CHECKMR02001FID">
+      <soap:operation soapAction="http://tempuri.org/CHECKMR02001FID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDFTOHTML">
+      <soap:operation soapAction="http://tempuri.org/PDFTOHTML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HISVIEW">
+      <soap:operation soapAction="http://tempuri.org/HISVIEW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GENEMRPDF">
+      <soap:operation soapAction="http://tempuri.org/GENEMRPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VIEW20230403">
+      <soap:operation soapAction="http://tempuri.org/VIEW20230403" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VIEW">
+      <soap12:operation soapAction="http://tempuri.org/VIEW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VIEW2">
+      <soap12:operation soapAction="http://tempuri.org/VIEW2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VIEW20190516">
+      <soap12:operation soapAction="http://tempuri.org/VIEW20190516" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDFCHECKER">
+      <soap12:operation soapAction="http://tempuri.org/PDFCHECKER" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CHECKMR02001FID">
+      <soap12:operation soapAction="http://tempuri.org/CHECKMR02001FID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDFTOHTML">
+      <soap12:operation soapAction="http://tempuri.org/PDFTOHTML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HISVIEW">
+      <soap12:operation soapAction="http://tempuri.org/HISVIEW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GENEMRPDF">
+      <soap12:operation soapAction="http://tempuri.org/GENEMRPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VIEW20230403">
+      <soap12:operation soapAction="http://tempuri.org/VIEW20230403" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="https://intra5.femh.org.tw:65534/OPENEMRVIEW/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="https://intra5.femh.org.tw:65534/OPENEMRVIEW/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

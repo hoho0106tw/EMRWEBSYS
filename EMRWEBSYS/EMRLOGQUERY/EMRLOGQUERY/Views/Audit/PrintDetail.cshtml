@@ -1,0 +1,38 @@
+﻿@using EMRLOGQUERY.Models
+@model List<AuditPrintDetailModels>
+
+<div style="margin-top:50px">
+
+<!-- EasyUI DataGrid -->
+<table id="table-case-list" class="easyui-datagrid" style="width: 100%; height: auto;"
+       data-options="fitColumns:true, singleSelect:true, pagination:true, title:'列印紀錄'">
+    <thead>
+        <tr>
+            <th data-options="field:'PrintDate', width:100, align:'center'">列印日期</th>
+            <th data-options="field:'PrintTime', width:100, align:'center'">列印時間</th>
+            <th data-options="field:'adminID', width:120, align:'center'">管理者帳號</th>
+            <th data-options="field:'adminName', width:120, align:'center'">管理者姓名</th>
+            <th data-options="field:'adminAction', width:100, align:'center'">動作</th>
+            <th data-options="field:'PrintDetail', width:250, align:'left'">內容</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x => item.PrintDate)</td>
+                <td>@Html.DisplayFor(x => item.PrintTime)</td>
+                <td>@Html.DisplayFor(x => item.adminID)</td>
+                <td>@Html.DisplayFor(x => item.adminName)</td>
+                <td>@Html.DisplayFor(x => item.adminAction)</td>
+                <td>@Html.DisplayFor(x => item.PrintDetail)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+    <script>
+        $(function () {
+            $('#table-case-list').datagrid();
+        });
+    </script>

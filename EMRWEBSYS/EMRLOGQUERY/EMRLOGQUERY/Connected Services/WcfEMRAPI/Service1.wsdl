@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://intra5.femh.org.tw:65534/WcfEMRAPI/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://intra5.femh.org.tw:65534/WcfEMRAPI/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://intra5.femh.org.tw:65534/WcfEMRAPI/Service1.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="https://intra5.femh.org.tw:65534/WcfEMRAPI/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_OPENVIEW_InputMessage">
+    <wsdl:part name="parameters" element="tns:OPENVIEW" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENVIEW_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OPENVIEWResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENVIEW_20250801_InputMessage">
+    <wsdl:part name="parameters" element="tns:OPENVIEW_20250801" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENVIEW_20250801_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OPENVIEW_20250801Response" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENPDF_InputMessage">
+    <wsdl:part name="parameters" element="tns:OPENPDF" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENPDF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OPENPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENSignPDFVIEW_InputMessage">
+    <wsdl:part name="parameters" element="tns:OPENSignPDFVIEW" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENSignPDFVIEW_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OPENSignPDFVIEWResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENSignPDFVIEW_Add_SFTP_InputMessage">
+    <wsdl:part name="parameters" element="tns:OPENSignPDFVIEW_Add_SFTP" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENSignPDFVIEW_Add_SFTP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OPENSignPDFVIEW_Add_SFTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FROM_SFTP_GETPDF_InputMessage">
+    <wsdl:part name="parameters" element="tns:FROM_SFTP_GETPDF" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FROM_SFTP_GETPDF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FROM_SFTP_GETPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetToken" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENSignPDFVIEW_Add_SFTP_20241014_InputMessage">
+    <wsdl:part name="parameters" element="tns:OPENSignPDFVIEW_Add_SFTP_20241014" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENSignPDFVIEW_Add_SFTP_20241014_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OPENSignPDFVIEW_Add_SFTP_20241014Response" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENSignPDFVIEW_20150101_InputMessage">
+    <wsdl:part name="parameters" element="tns:OPENSignPDFVIEW_20150101" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENSignPDFVIEW_20150101_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OPENSignPDFVIEW_20150101Response" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENSignPDFVIE_20250801_InputMessage">
+    <wsdl:part name="parameters" element="tns:OPENSignPDFVIE_20250801" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OPENSignPDFVIE_20250801_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OPENSignPDFVIE_20250801Response" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UploadEMRForFEMHEMR_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadEMRForFEMHEMR" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UploadEMRForFEMHEMR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadEMRForFEMHEMRResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OrgSign_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrgSign" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OrgSign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrgSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_cancelPrint_InputMessage">
+    <wsdl:part name="parameters" element="tns:cancelPrint" />
+  </wsdl:message>
+  <wsdl:message name="IService1_cancelPrint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:cancelPrintResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSensitiveMedRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSensitiveMedRecord" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSensitiveMedRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSensitiveMedRecordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="OPENVIEW">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OPENVIEW" message="tns:IService1_OPENVIEW_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OPENVIEWResponse" message="tns:IService1_OPENVIEW_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OPENVIEW_20250801">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OPENVIEW_20250801" message="tns:IService1_OPENVIEW_20250801_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OPENVIEW_20250801Response" message="tns:IService1_OPENVIEW_20250801_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OPENPDF">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OPENPDF" message="tns:IService1_OPENPDF_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OPENPDFResponse" message="tns:IService1_OPENPDF_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OPENSignPDFVIEW" message="tns:IService1_OPENSignPDFVIEW_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OPENSignPDFVIEWResponse" message="tns:IService1_OPENSignPDFVIEW_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW_Add_SFTP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OPENSignPDFVIEW_Add_SFTP" message="tns:IService1_OPENSignPDFVIEW_Add_SFTP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OPENSignPDFVIEW_Add_SFTPResponse" message="tns:IService1_OPENSignPDFVIEW_Add_SFTP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FROM_SFTP_GETPDF">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FROM_SFTP_GETPDF" message="tns:IService1_FROM_SFTP_GETPDF_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FROM_SFTP_GETPDFResponse" message="tns:IService1_FROM_SFTP_GETPDF_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetToken" message="tns:IService1_GetToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTokenResponse" message="tns:IService1_GetToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW_Add_SFTP_20241014">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OPENSignPDFVIEW_Add_SFTP_20241014" message="tns:IService1_OPENSignPDFVIEW_Add_SFTP_20241014_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OPENSignPDFVIEW_Add_SFTP_20241014Response" message="tns:IService1_OPENSignPDFVIEW_Add_SFTP_20241014_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW_20150101">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OPENSignPDFVIEW_20150101" message="tns:IService1_OPENSignPDFVIEW_20150101_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OPENSignPDFVIEW_20150101Response" message="tns:IService1_OPENSignPDFVIEW_20150101_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIE_20250801">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OPENSignPDFVIE_20250801" message="tns:IService1_OPENSignPDFVIE_20250801_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OPENSignPDFVIE_20250801Response" message="tns:IService1_OPENSignPDFVIE_20250801_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadEMRForFEMHEMR">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UploadEMRForFEMHEMR" message="tns:IService1_UploadEMRForFEMHEMR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UploadEMRForFEMHEMRResponse" message="tns:IService1_UploadEMRForFEMHEMR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrgSign">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OrgSign" message="tns:IService1_OrgSign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OrgSignResponse" message="tns:IService1_OrgSign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelPrint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/cancelPrint" message="tns:IService1_cancelPrint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/cancelPrintResponse" message="tns:IService1_cancelPrint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSensitiveMedRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetSensitiveMedRecord" message="tns:IService1_GetSensitiveMedRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetSensitiveMedRecordResponse" message="tns:IService1_GetSensitiveMedRecord_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OPENVIEW">
+      <soap:operation soapAction="http://tempuri.org/IService1/OPENVIEW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENVIEW_20250801">
+      <soap:operation soapAction="http://tempuri.org/IService1/OPENVIEW_20250801" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENPDF">
+      <soap:operation soapAction="http://tempuri.org/IService1/OPENPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW">
+      <soap:operation soapAction="http://tempuri.org/IService1/OPENSignPDFVIEW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW_Add_SFTP">
+      <soap:operation soapAction="http://tempuri.org/IService1/OPENSignPDFVIEW_Add_SFTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FROM_SFTP_GETPDF">
+      <soap:operation soapAction="http://tempuri.org/IService1/FROM_SFTP_GETPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW_Add_SFTP_20241014">
+      <soap:operation soapAction="http://tempuri.org/IService1/OPENSignPDFVIEW_Add_SFTP_20241014" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW_20150101">
+      <soap:operation soapAction="http://tempuri.org/IService1/OPENSignPDFVIEW_20150101" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIE_20250801">
+      <soap:operation soapAction="http://tempuri.org/IService1/OPENSignPDFVIE_20250801" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadEMRForFEMHEMR">
+      <soap:operation soapAction="http://tempuri.org/IService1/UploadEMRForFEMHEMR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrgSign">
+      <soap:operation soapAction="http://tempuri.org/IService1/OrgSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelPrint">
+      <soap:operation soapAction="http://tempuri.org/IService1/cancelPrint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSensitiveMedRecord">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetSensitiveMedRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSHttpBinding_IService1" type="tns:IService1">
+    <wsp:PolicyReference URI="#WSHttpBinding_IService1_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OPENVIEW">
+      <soap12:operation soapAction="http://tempuri.org/IService1/OPENVIEW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENVIEW_20250801">
+      <soap12:operation soapAction="http://tempuri.org/IService1/OPENVIEW_20250801" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENPDF">
+      <soap12:operation soapAction="http://tempuri.org/IService1/OPENPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW">
+      <soap12:operation soapAction="http://tempuri.org/IService1/OPENSignPDFVIEW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW_Add_SFTP">
+      <soap12:operation soapAction="http://tempuri.org/IService1/OPENSignPDFVIEW_Add_SFTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FROM_SFTP_GETPDF">
+      <soap12:operation soapAction="http://tempuri.org/IService1/FROM_SFTP_GETPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW_Add_SFTP_20241014">
+      <soap12:operation soapAction="http://tempuri.org/IService1/OPENSignPDFVIEW_Add_SFTP_20241014" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIEW_20150101">
+      <soap12:operation soapAction="http://tempuri.org/IService1/OPENSignPDFVIEW_20150101" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPENSignPDFVIE_20250801">
+      <soap12:operation soapAction="http://tempuri.org/IService1/OPENSignPDFVIE_20250801" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadEMRForFEMHEMR">
+      <soap12:operation soapAction="http://tempuri.org/IService1/UploadEMRForFEMHEMR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrgSign">
+      <soap12:operation soapAction="http://tempuri.org/IService1/OrgSign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelPrint">
+      <soap12:operation soapAction="http://tempuri.org/IService1/cancelPrint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSensitiveMedRecord">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetSensitiveMedRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://intra5-1.ad.femh.local:888/WcfEMRAPI/Service1.svc" />
+    </wsdl:port>
+    <wsdl:port name="WSHttpBinding_IService1" binding="tns:WSHttpBinding_IService1">
+      <soap12:address location="https://intra5.femh.org.tw:65534/WcfEMRAPI/Service1.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://intra5.femh.org.tw:65534/WcfEMRAPI/Service1.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

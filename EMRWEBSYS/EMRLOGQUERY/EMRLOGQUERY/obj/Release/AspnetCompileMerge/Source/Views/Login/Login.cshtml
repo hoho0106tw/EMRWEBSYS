@@ -1,0 +1,96 @@
+﻿@model EMRLOGQUERY.ViewModels.ModelLogin
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.LoginPage = true;
+
+}
+
+<script>
+
+    function OnBegin(value) {
+
+    }
+
+    function onSuccess(result, ref) {
+
+        if (result.url) {
+            var url = result.url;
+            $("#login-ok").show();
+            window.location.replace(url);
+        }
+        else if (result.message) {
+            try {
+
+                $.messager.alert('info', result.message.replace(/\n/g, '<br>'), 'info', function () {
+                    location.reload(); // 使用者按下 OK 後才 reload
+                });
+
+            }
+            catch (e) {
+
+                $.messager.alert('Error', e.message, 'error', function () {
+                    location.reload();
+                });
+            }
+
+        }
+        else {
+
+            $.messager.alert('Error', 'Processing error...', 'error', function () {
+                location.reload();
+            });
+        }
+
+    }
+
+
+
+    function OnComplete(response) {
+
+    }
+
+</script>
+
+<style type="text/css">
+    .login-zone {
+        padding-right: 1em;
+        padding-left: 1em;
+        padding-top: 2em;
+        margin-top: 40px;
+    }
+</style>
+
+@{
+    var token = Request.QueryString["token"];
+    var useAjaxForm = string.IsNullOrEmpty(token); // 沒 token 就用 Ajax    
+    var actionName = useAjaxForm ? "LoginCheck" : "TokenCheck";
+}
+
+
+<div style="display: none;">
+    <input type="password" autocomplete="off" />
+</div>
+<div class="login-zone">
+    <div class="login-zone">
+        <div class="row">
+            @using (Ajax.BeginForm(actionName, "Login", null, new AjaxOptions
+            {
+                HttpMethod = "Post",
+                InsertionMode = InsertionMode.Replace,
+                OnBegin = "OnBegin($(this))",
+                OnComplete = "OnComplete",
+                OnSuccess = "onSuccess(data,this)"
+            }, new { id = "LoginCheck" }))
+            {
+                @Html.Partial("_LoginCommon", Model)
+                @Html.AntiForgeryToken()
+
+                @* 隱藏欄位帶入 token *@
+                <input type="hidden" name="token" value="@token" />
+            }
+        </div>
+    </div>
+</div>
+
+
+

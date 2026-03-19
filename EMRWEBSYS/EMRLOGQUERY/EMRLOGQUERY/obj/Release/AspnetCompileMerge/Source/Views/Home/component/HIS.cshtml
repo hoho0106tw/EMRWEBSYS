@@ -1,0 +1,291 @@
+﻿@using EMRLOGQUERY.Models
+@model  EMRLOGQUERY.Models.TreeModelList
+
+@Html.Partial("~/Views/Home/component/_easyuiHeader.cshtml")
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+       initResponsiveLayout();
+        initializeJqxTree();
+        initializeJqxNotification();
+        initializeJqxTreeSource();
+        initTreeCompare();
+        initLockEvents();
+    });
+
+    function initResponsiveLayout() {
+        function resizeLayout() {
+            let window_width = window.innerWidth * 0.95;
+            let panels_size = window_width * 0.4;
+            let window_height = window.innerHeight * 0.95;
+
+            $('#easyuilayout').layout('resize', {
+                height: window_height
+            });
+        }
+
+        // 初始調整
+        resizeLayout();
+
+        // 監聽視窗大小變更事件
+        $(window).resize(function () {
+            resizeLayout();
+        });
+    }
+
+
+    // Initialize jqxTree source with model data
+  function initializeJqxTreeSource() {
+        var data = null;
+        @if (Model != null) {
+            @: data = @Html.Raw(Json.Encode(Model.node));
+            @: $('#jqxTree').jqxTree({ source: data, checkboxes: true, theme: "summer", width: '100%', height: '100%' });
+        }
+    }
+
+
+    function buildModel(selectedValue, remarksContent) {
+        const model = [];
+        const item = $('#jqxTree').jqxTree('getSelectedItem');  
+
+        if (!item) {
+            alert("請先選擇一個項目！");
+            return null;
+        }
+
+        model.push(item.id);
+        model.push(item.iconsize);
+        model.push(selectedValue);
+        model.push(remarksContent);
+
+        // Add additional info based on label type
+        if (item.label.includes('XML')) {
+            model.push('XML');
+        } else if (item.label.includes('PDF')) {
+            model.push('PDF');
+        }
+
+        return model;
+    }
+
+
+
+        // Handle jqxTree select event
+async function handleJqxTreeSelect(event) {
+    try {
+
+        // Clear content panel
+        $("#ContentPanel").html('');
+
+        // Show dialog and get user input
+        const { isConfirmed, selectedValue, remarksContent } = await showCausWindowDialog();
+
+        // Exit if user did not confirm
+        if (!isConfirmed) {
+            return;
+        }
+
+        // Initialize data model
+         var model = [];
+         model=  buildModel(selectedValue, remarksContent)
+        if (model) {
+            // Define controller action URL
+            const url = '@Html.Raw(@Url.Action("EMRView", "component"))';
+
+            // Execute AJAX request
+            $.ajax({
+                url: url,
+                data: JSON.stringify(model),
+                type: 'POST',
+                contentType: 'application/json;charset=utf-8',
+                async: true,
+                success: function (data) {
+                    // Update content panel with the returned HTML
+                    $("#ContentPanel").html('<div style="margin: auto; padding: 10px;">' + data.HTML + '</div>');
+                },
+                error: function (xhr) {
+                    // Handle error
+                    alert("失敗: " + (xhr.responseText || "未知錯誤"));
+                }
+            });
+        }
+    } catch (error) {
+        // Handle any uncaught exceptions
+        console.error("操作失败:", error);
+        alert("操作失敗: " + error.message);
+    }
+}
+
+
+
+    // Initialize jqxTree
+    function initializeJqxTree() {
+        $('#jqxTree').jqxTree({ theme: 'summer', checkboxes: true, height: '100%', width: '100%' });
+        $('#jqxTree').css('visibility', 'visible');
+        // Attach the select event listener
+        $('#jqxTree').on('select', handleJqxTreeSelect);
+    }
+
+
+    // Initialize jqxNotification
+    function initializeJqxNotification() {
+        $("#jqxNotification").jqxNotification({
+            theme: "summer",
+            width: "auto",
+            position: "bottom-right",
+            opacity: 0.7,
+            autoOpen: false,
+            animationOpenDelay: 800,
+            autoClose: true,
+            autoCloseDelay: 3000,
+            template: "time"
+        });
+    }
+
+
+
+    function initTreeCompare() {
+        let chkID1 = "";   // 存儲第一次選中的 ID
+        let chkID2 = "";   // 存儲第二次選中的 ID
+        let iconsize = ""; // 存儲圖標大小
+        let count = 0;     // 計數，只有第二次選中才觸發比較
+
+        // 綁定 jqxTree 的 change 事件
+        $('#jqxTree').on('change', function (event) {
+            const treeItem = event.target.treeItem;
+            const selectedItems = $('#jqxTree').jqxTree('getCheckedItems'); // 獲取已勾選的項目
+
+            // 檢查已勾選項目的數量
+            if (selectedItems.length > 2) {
+                // 當有超過兩個項目被勾選時，取消第三個及以後的勾選
+                for (let i = 2; i < selectedItems.length; i++) {
+                    $('#jqxTree').jqxTree('uncheckItem', selectedItems[i].id);
+                }
+                // 顯示提示信息
+                const message = "<div style='padding:1em; font-size: 14pt;'>您只能選擇兩筆進行比較，第三筆及以上的項目將被取消勾選。</div>";
+                document.getElementById('jqxNotification').innerHTML = message;
+                $("#jqxNotification").jqxNotification("open");
+                return;  // 只允許最多兩筆勾選
+            }
+
+            if (count === 0) {
+                // 第一次選中，只顯示提示信息
+                const message = "<div style='padding:1em; font-size: 14pt;'>請再勾選一筆，就可以進入歷程比較內容系統，得知修改內容。</div>";
+                document.getElementById('jqxNotification').innerHTML = message;
+                $("#jqxNotification").jqxNotification("open");
+                // 保存第一次選中的項目資料
+                chkID1 = treeItem.id;
+                iconsize = treeItem.iconsize;
+                count++;
+            } else if (count === 1) {
+                $("#jqxNotification").hide();
+                // 第二次選中，執行比較邏輯
+                chkID2 = treeItem.id;
+                // 準備比較資料模型
+                const model = [chkID1, chkID2, iconsize];
+                compareHistory(model); // 你自己的比較邏輯 function
+
+                // 重置計數器和選中項目
+                count = 0;
+                chkID1 = "";
+                chkID2 = "";
+                iconsize = "";
+            }
+        });
+
+        // 當比較視窗關閉時，關閉相關的 window
+        $('#Compare').window({
+            onClose: function () {
+                $('#CompareWindow').window('close');
+            }
+        });
+    }
+
+
+
+
+function compareHistory(model) {
+
+ const url = '@Html.Raw(@Url.Action("CompareDifference", "Home"))';
+
+    $.ajax({
+        url: url,
+        data: JSON.stringify(model),
+        type: 'POST',
+        contentType: 'application/json;charset=utf-8',       
+        async: true,
+        success: function (data) {         
+
+            var windowHeight = window.screen.availHeight * 0.5;
+
+            $("#Compare2").html(data.CompareWEB);
+            $("#WEB1").html(data.HistoryWEB1);
+            $("#WEB2").html(data.HistoryWEB2);
+
+            $('#Compare').window('close');
+            $('#Compare').window('open');
+             $('#jqxTree').jqxTree('uncheckAll');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert("Error(1):" + xhr.responseText);
+        }
+    });
+
+
+}
+
+    function initLockEvents() {
+        function lock(theEvent) {
+            let event = theEvent || window.event;
+
+            // 擋滑鼠右鍵選單事件
+            if (event.type == "contextmenu") {
+                return false;
+
+                // 擋 IE 按下 F1 鈕時會觸發的 onhelp 事件
+            } else if (event.type == "help") {
+                return false;
+                // 擋特定按鍵
+            } else if (event.type == "keydown") {
+                // 擋 alt、ctrl 鍵
+                if (event.altKey || event.ctrlKey) {
+                    return false;
+                }
+                // 擋 F1 ~ F12 功能鍵
+                if (event.keyCode >= 112 && event.keyCode <= 123) {
+                    try {
+                        // IE 要將 keyCode 設為 0 才能真正擋下 F2 ~ F12 功能鍵，FF 會丟 Exception 所以用 try-catch 擋住
+                        event.keyCode = 0;
+                    } catch (e) { }
+                    return false;
+                }
+            }
+        }
+
+        // 綁定事件
+        document.onmousedown = lock;
+        document.oncontextmenu = lock;
+        document.onkeydown = lock;
+        window.onhelp = lock;
+    }
+</script>
+
+<div id="easyuilayout" class="easyui-layout" style="width: 100%; height: 100vh; position: absolute; top: 15px; margin: auto; font-family: 微軟正黑體, sans-serif; ">
+    <div data-options="region: 'west', split: true" title="EMR History" style="width: 25%; height: 100%;">
+        <div id="jqxTree" style="visibility: hidden; border: none;"></div>
+    </div>
+    <div id="ContentPanel" data-options="region: 'center', title: 'EMR Document'" style="width: 75%; height: 100%;">
+    </div>
+    @Html.Partial("~/Views/Home/component/_ShowProgress.cshtml", new ViewDataDictionary { { "UniqueId", "EMR" } })
+</div>
+
+@Html.Partial("~/Views/Cause/CauseAnalysis.cshtml")
+@Html.Partial("~/Views/Home/component/jqxNotification.cshtml")
+@Html.Partial("~/Views/Home/component/CompareView.cshtml")
+
+
+
+
+

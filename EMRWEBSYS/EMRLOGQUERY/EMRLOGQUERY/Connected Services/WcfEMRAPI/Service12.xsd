@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://intra5.femh.org.tw:65534/WcfEMRAPI/Service1.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/Message" />
+  <xs:import schemaLocation="https://intra5.femh.org.tw:65534/WcfEMRAPI/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="OPENVIEW">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TokenSession" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENVIEWResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/Message" name="OPENVIEWResult" type="q1:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENVIEW_20250801">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TokenSession" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isHide" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENVIEW_20250801Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/Message" name="OPENVIEW_20250801Result" type="q2:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENPDF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TokenSession" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENPDFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/Message" name="OPENPDFResult" type="q3:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENSignPDFVIEW">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TokenSession" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PDFPWD" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENSignPDFVIEWResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/Message" name="OPENSignPDFVIEWResult" type="q4:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENSignPDFVIEW_Add_SFTP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TokenSession" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PDFPWD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EC_FILENAME" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENSignPDFVIEW_Add_SFTPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OPENSignPDFVIEW_Add_SFTPResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FROM_SFTP_GETPDF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="remotePath" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TokenSession" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FROM_SFTP_GETPDFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/Message" name="FROM_SFTP_GETPDFResult" type="q5:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetToken">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTokenResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENSignPDFVIEW_Add_SFTP_20241014">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EMR_SysKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TokenSession" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PDFPWD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EC_FILENAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="extension" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filename" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENSignPDFVIEW_Add_SFTP_20241014Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OPENSignPDFVIEW_Add_SFTP_20241014Result" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENSignPDFVIEW_20150101">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EMR_SysKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TokenSession" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PDFPWD" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENSignPDFVIEW_20150101Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/Message" name="OPENSignPDFVIEW_20150101Result" type="q6:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENSignPDFVIE_20250801">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EMR_SysKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TokenSession" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PDFPWD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isHide" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPENSignPDFVIE_20250801Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/Message" name="OPENSignPDFVIE_20250801Result" type="q7:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadEMRForFEMHEMR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDNO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CASENO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PDFPWD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TokenSession" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sAdminID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadEMRForFEMHEMRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadEMRForFEMHEMRResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrgSign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="selectedItems" nillable="true" type="q8:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrgSignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrgSignResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cancelPrint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="selectedItems" nillable="true" type="q9:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cancelPrintResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cancelPrintResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSensitiveMedRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EMR_SysKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TokenSession" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSensitiveMedRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSensitiveMedRecordResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

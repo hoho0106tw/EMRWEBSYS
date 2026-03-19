@@ -1,0 +1,277 @@
+﻿@using EMRLOGQUERY.Models
+@model  EMRLOGQUERY.Models.TreeModelList
+
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+    initializeTree();
+    initializeNotification();
+    initializePrintButton();
+
+    $('#jqxTree2').on('checkChange', function (event) {
+        syncChildCheckboxes('#jqxTree2', event);
+    });
+
+});
+
+
+function syncChildCheckboxes(treeSelector, event) {
+        var itemElement = event.args.element;
+        var nodeId = $(itemElement).attr('id');
+        var treeItem = $(treeSelector).jqxTree('getItem', itemElement);
+        var checked = treeItem.checked;
+      //  console.log('ID:', nodeId, 'Checked:', checked);
+        function setChildCheckState(item, isChecked) {
+            var $itemElement = $(item.element);
+            var childElements = $itemElement.find('> ul > li');
+
+            childElements.each(function () {
+                var childItem = $(treeSelector).jqxTree('getItem', this);
+                $(treeSelector).jqxTree('checkItem', childItem, isChecked);
+                setChildCheckState(childItem, isChecked);
+            });
+        }
+        setChildCheckState(treeItem, checked);
+}
+
+function initializeTree() {
+    $('#jqxTree2').jqxTree({ theme: 'summer', checkboxes: true, height: '100%', width: '100%' });
+    $('#jqxTree2').css('visibility', 'visible');
+    $('#jqxTree2').on('select', handleTreeSelect);
+}
+
+function initializeNotification() {
+    $("#jqxNotification").jqxNotification({
+        theme: "summer", width: "auto", position: "bottom-right", opacity: 0.7,
+        autoOpen: false, animationOpenDelay: 800, autoClose: true, autoCloseDelay: 3000, template: "time"
+    });
+}
+
+function initializePrintButton() {
+    document.getElementById("printButton").addEventListener("click", handlePrintButtonClick);
+}
+
+async function handlePrintButtonClick() {
+
+ let isConfirmed = false;
+ let selectedValue = null;
+ let remarksContent = "";
+
+     var browerReason = '@Html.Raw(HttpUtility.JavaScriptStringEncode(Session["BrowerReason"]?.ToString() ?? ""))';
+
+     if (browerReason != "") {
+         isConfirmed = true;
+         selectedValue = "其他";
+         remarksContent = browerReason;
+     }
+     else {
+         const result = await showCausWindowDialog();
+         isConfirmed = result.isConfirmed;
+         selectedValue = result.selectedValue;
+         remarksContent = result.remarksContent;
+         if (!isConfirmed) return;
+     }
+
+
+
+    const checkedItems = getCheckedTreeItems();
+    if (checkedItems.length === 0) {
+        alert("請先選擇要列印的項目！");
+        return;
+    }
+    sendPrintRequest(checkedItems, selectedValue, remarksContent);
+}
+
+
+
+    function getCheckedTreeItems() {
+        const checkedItems = [];
+        const tree = $('#jqxTree2');
+        const checkedNodes = tree.jqxTree('getCheckedItems');
+
+        if (checkedNodes && checkedNodes.length > 0) {
+            checkedNodes.forEach(node => {
+                // 用 jqxTree 的 API 查詢這個節點是否有子節點
+                const hasChildren = tree.jqxTree('getItems', node.element).some(item => item.parentElement === node.element);
+
+                if (!hasChildren) {
+                    checkedItems.push(node.id); // 或 node.label、{ id: node.id, label: node.label } 等
+                }
+            });
+        }
+
+        return checkedItems;
+    }
+
+@*function sendPrintRequest(selectedItems, reason, remarks) {
+    const url = '@Url.Action("PrintEMR", "Component")';
+    $("#loading_EMR").show();
+
+    fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ selectedItems, Reason: reason, remarksContent: remarks })
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('無法獲取PDF Stream，請確認Server是否異常。');
+        return response.blob();
+    })
+    .then(blob => displayPDF(blob))
+    .catch(error => {
+        console.error('Loading PDF 失敗:', error);
+        alert('Loading PDF 失敗');
+    })
+    .finally(() => $("#loading_EMR").hide());
+}*@
+
+
+    async function sendPrintRequest(selectedItems, reason, remarks) {
+    const url = '@Url.Action("PrintEMR", "Component")';
+    const batchSize = 500;
+    const totalBatches = Math.ceil(selectedItems.length / batchSize);
+    const pdfBlobs = [];
+
+    // 通知使用者總共會產生幾個檔案
+    if (!confirm(`您選擇了 ${selectedItems.length} 筆資料，系統將分為 ${totalBatches} 個 PDF 檔案下載，是否繼續？`)) {
+        return;
+    }
+
+    $("#loading_EMR").show();
+    $("#loading_EMR").text(`開始產生 PDF，共 ${totalBatches} 個批次...`);
+
+    for (let i = 0; i < selectedItems.length; i += batchSize) {
+        const batchIndex = Math.floor(i / batchSize) + 1;
+        const batch = selectedItems.slice(i, i + batchSize);
+
+        $("#loading_EMR").text(`正在處理第 ${batchIndex} / ${totalBatches} 批...`);
+
+        try {
+            const res = await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    selectedItems: batch,
+                    Reason: reason,
+                    remarksContent: remarks
+                })
+            });
+
+            if (!res.ok) throw new Error("PDF Stream 錯誤");
+            const blob = await res.blob();
+
+            // 暫存 PDF Blob，不立即顯示
+            pdfBlobs.push(blob);
+
+            $("#loading_EMR").text(`已完成 ${batchIndex} / ${totalBatches} 批次`);
+
+        } catch (err) {
+            console.error(`批次 ${batchIndex} 失敗:`, err);
+            alert(`第 ${batchIndex} 批失敗，請稍後重試。`);
+        }
+    }
+
+    $("#loading_EMR").text(`全部完成！共 ${pdfBlobs.length} 個 PDF`);
+
+    // 是否一次開啟全部 PDF？
+    if (pdfBlobs.length > 0) {
+        const openNow = confirm(`已完成 ${pdfBlobs.length} 個 PDF，是否立即顯示？`);
+        if (openNow) {
+            for (let i = 0; i < pdfBlobs.length; i++) {
+                displayPDF(pdfBlobs[i]);
+            }
+        }
+    }
+
+    $("#loading_EMR").hide();
+}
+
+
+function displayPDF(blob) {
+    const objectURL = URL.createObjectURL(blob);
+    const iframe = document.createElement('iframe');
+    iframe.style.position = 'absolute';
+    iframe.style.width = '0';
+    iframe.style.height = '0';
+    iframe.style.border = 'none';
+    iframe.src = objectURL;
+    document.body.appendChild(iframe);
+    iframe.onload = () => iframe.contentWindow.print();
+}
+
+async function handleTreeSelect(event) {
+    try {
+        const item = $('#jqxTree2').jqxTree('getSelectedItem');
+        if (!item || !item.id || item.id.length < 20) return;
+
+        $("#ContentPanel2").html('');
+
+    let isConfirmed = false;
+    let selectedValue = null;
+    let remarksContent = "";
+
+        var browerReason = '@Html.Raw(HttpUtility.JavaScriptStringEncode(Session["BrowerReason"]?.ToString() ?? ""))';
+
+        if (browerReason != "") {
+            isConfirmed = true;
+            selectedValue = "其他";
+            remarksContent = browerReason;
+        }
+        else {
+            const result = await showCausWindowDialog();
+            isConfirmed = result.isConfirmed;
+            selectedValue = result.selectedValue;
+            remarksContent = result.remarksContent;
+            if (!isConfirmed) return;
+        }
+        sendTreeSelectRequest(item, selectedValue, remarksContent);
+    } catch (error) {
+        console.error("操作失败:", error);
+        alert("操作失敗: " + error.message);
+    }
+}
+
+function sendTreeSelectRequest(item, reason, remarks) {
+    const model = [item.id, item.iconsize, reason, remarks];
+    if (item.label.includes('XML')) model.push('XML');
+    else if (item.label.includes('PDF')) model.push('PDF');
+
+    const url = '@Html.Raw(@Url.Action("EMRView", "component"))';
+    $.ajax({
+        url: url,
+        data: JSON.stringify(model),
+        type: 'POST',
+        contentType: 'application/json;charset=utf-8',
+        async: true,
+        success: function (data) {
+            $("#ContentPanel2").html('<div style="margin: auto; padding: 10px;">' + data.HTML + '</div>');
+        },
+        error: function (xhr) {
+            alert("失敗: " + (xhr.responseText || "未知錯誤"));
+        }
+    });
+}
+
+var data = null;
+@if (Model != null) {
+    @: data = @Html.Raw(Json.Encode(Model.node));
+    @: $('#jqxTree2').jqxTree({ source: data, width: '100%', height: '100%' });
+}
+</script>
+
+<div class="easyui-layout" style="width:100%;height:100%;">
+    <div data-options="region:'west',split:true" title="EMR History" style="width:25%;height:100%;">
+        <div id="jqxTree2" style="visibility:hidden; border:none;"></div>
+    </div>
+
+    <div id="ContentPanel2" data-options="region:'center',title:'EMR Document'" style="width:75%; height:100%;"></div>
+
+    <div id="printSection" data-options="region:'south',split:true" style="height:50px;">
+        <a href="#" id="printButton" class="easyui-linkbutton" style="height:45px; width:120px;" data-options="plain:true,iconCls:'icon-print'">
+            Print
+        </a>
+    </div>
+</div>
+
+
+

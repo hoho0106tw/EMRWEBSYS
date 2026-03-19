@@ -1,0 +1,444 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\controllers\\funcode\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\controllers\\funcode\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\controllers\\funcode\\getsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\controllers\\funcode\\getsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\controllers\\funcode\\fun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\controllers\\funcode\\fun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\controllers\\funcode\\connectdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\controllers\\funcode\\connectdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\controllers\\componentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\controllers\\componentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\controllers\\auditcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\controllers\\auditcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\emrlogquery\\controllers\\causecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\controllers\\causecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\emrlogquery\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\views\\login\\_logincommon.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\login\\_logincommon.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\views\\home\\component\\emrhis.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\home\\component\\emrhis.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\views\\home\\component\\his.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\home\\component\\his.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\views\\home\\_easyuilayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\home\\_easyuilayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\views\\home\\audit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\home\\audit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\views\\home\\borrowemr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\home\\borrowemr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\views\\home\\fake.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\home\\fake.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|c:\\users\\administrator\\desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\emrlogquery\\emrlogquery\\views\\home\\emr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\home\\emr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\emrlogquery\\views\\home\\component\\releaseemr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF8781DC-8538-4588-8B0F-306DD4241854}|EMRLOGQUERY\\EMRLOGQUERY.csproj|solutionrelative:emrlogquery\\views\\home\\component\\releaseemr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Token.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\FunCode\\Token.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Controllers\\FunCode\\Token.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\FunCode\\Token.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\Controllers\\FunCode\\Token.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T03:56:01.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "getSQL.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\FunCode\\getSQL.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Controllers\\FunCode\\getSQL.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\FunCode\\getSQL.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\Controllers\\FunCode\\getSQL.cs",
+              "ViewState": "AgIAAFsBAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T03:55:57.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "fun.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\FunCode\\fun.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Controllers\\FunCode\\fun.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\FunCode\\fun.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\Controllers\\FunCode\\fun.cs",
+              "ViewState": "AgIAAH8CAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T03:55:51.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConnectDB.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\FunCode\\ConnectDB.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Controllers\\FunCode\\ConnectDB.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\FunCode\\ConnectDB.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\Controllers\\FunCode\\ConnectDB.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvxgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T03:54:29.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuditController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\AuditController.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Controllers\\AuditController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\AuditController.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\Controllers\\AuditController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T03:50:28.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "WebApiConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\App_Start\\WebApiConfig.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\App_Start\\WebApiConfig.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\App_Start\\WebApiConfig.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\App_Start\\WebApiConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T03:50:16.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T03:49:54.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BundleConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\App_Start\\BundleConfig.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\App_Start\\BundleConfig.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\App_Start\\BundleConfig.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\App_Start\\BundleConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T03:49:50.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAmwHsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T03:16:29.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "componentController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\componentController.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Controllers\\componentController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\componentController.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\Controllers\\componentController.cs",
+              "ViewState": "AgIAALoCAAAAAAAAAAAlwMoAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T05:43:41.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CauseController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\CauseController.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Controllers\\CauseController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\CauseController.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\Controllers\\CauseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T00:35:43.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FilterConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\App_Start\\FilterConfig.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\App_Start\\FilterConfig.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\App_Start\\FilterConfig.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\App_Start\\FilterConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T03:49:52.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T03:49:43.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Login\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Login\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T03:44:59.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Audit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\Audit.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Home\\Audit.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\Audit.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Home\\Audit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T03:29:29.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EMRHIS.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\component\\EMRHIS.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Home\\component\\EMRHIS.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\component\\EMRHIS.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Home\\component\\EMRHIS.cshtml",
+              "ViewState": "AgIAAOwAAAAAAAAAAAAWwP4AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T03:29:34.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "EMRLOGQUERY\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAIwGgAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T05:43:41.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "_LoginCommon.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Login\\_LoginCommon.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Login\\_LoginCommon.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Login\\_LoginCommon.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Login\\_LoginCommon.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T03:44:58.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BorrowEmr.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\BorrowEmr.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Home\\BorrowEmr.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\BorrowEmr.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Home\\BorrowEmr.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T03:29:28.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Fake.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\Fake.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Home\\Fake.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\Fake.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Home\\Fake.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T03:29:26.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T03:29:21.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "EMR.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\EMR.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Home\\EMR.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\EMR.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Home\\EMR.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAE0AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T03:28:48.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "HIS.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\component\\HIS.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Home\\component\\HIS.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\component\\HIS.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Home\\component\\HIS.cshtml",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T03:42:23.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "_easyuilayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\_easyuilayout.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Home\\_easyuilayout.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\_easyuilayout.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Home\\_easyuilayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T03:29:31.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ReleaseEMR.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\component\\ReleaseEMR.cshtml",
+              "RelativeDocumentMoniker": "EMRLOGQUERY\\Views\\Home\\component\\ReleaseEMR.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u65B0\u589E\u8CC7\u6599\u593E (40)\\EMRLOGQUERY\\EMRLOGQUERY\\Views\\Home\\component\\ReleaseEMR.cshtml",
+              "RelativeToolTip": "EMRLOGQUERY\\Views\\Home\\component\\ReleaseEMR.cshtml",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAiwLsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-14T05:43:15.231Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+﻿@using EMRLOGQUERY.Models
+@model  EMRLOGQUERY.Models.TreeModelList
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Initialize all components
+        initializeJqxTree();
+        initializeJqxNotification();
+        initializeJqxTreeSource();
+        attachOrgSigntButtonClickListener();
+        $('#DiffEMRButton').on('click', handleButtonClick);
+        attachcancelPrintButtonClickListener();
+    });
+
+    // Initialize jqxTree
+    function initializeJqxTree() {
+        $('#jqxTree').jqxTree({ theme: 'summer', checkboxes: true, height: '100%', width: '100%' });
+        $('#jqxTree').css('visibility', 'visible');
+        // Attach the select event listener
+        $('#jqxTree').on('select', handleJqxTreeSelect);
+    }
+
+    // Handle jqxTree select event
+async function handleJqxTreeSelect(event) {
+    try {
+        // Clear content panel
+        $("#ContentPanel").html('');
+
+        // Show dialog and get user input
+        const { isConfirmed, selectedValue, remarksContent } = await showCausWindowDialog();
+
+        // Exit if user did not confirm
+        if (!isConfirmed) {
+            return;
+        }
+
+        // Initialize data model
+        const model = [];
+        const item = $('#jqxTree').jqxTree('getSelectedItem');
+
+
+        // Collect data
+        model.push(item.id);
+        model.push(item.iconsize);
+        model.push(selectedValue);
+        model.push(remarksContent);
+
+        // Add additional info based on label type
+        if (item.label.includes('XML')) {
+            model.push('XML');
+        } else if (item.label.includes('PDF')) {
+            model.push('PDF');
+        }
+
+        // Define controller action URL
+        const url = '@Html.Raw(@Url.Action("EMRView", "component"))';
+
+        // Execute AJAX request
+        $.ajax({
+            url: url,
+            data: JSON.stringify(model),
+            type: 'POST',
+            contentType: 'application/json;charset=utf-8',
+            async: true,
+            success: function (data) {
+                // Update content panel with the returned HTML
+                $("#ContentPanel").html('<div style="margin: auto; padding: 10px;">' + data.HTML + '</div>');
+            },
+            error: function (xhr) {
+                // Handle error
+                alert("失敗: " + (xhr.responseText || "未知錯誤"));
+            }
+        });
+    } catch (error) {
+        // Handle any uncaught exceptions
+        console.error("操作失败:", error);
+        alert("操作失敗: " + error.message);
+    }
+}
+
+    function sendTreeSelectRequest(item, reason, remarks) {
+    const model = [item.id, item.iconsize, reason, remarks];
+    if (item.label.includes('XML')) model.push('XML');
+    else if (item.label.includes('PDF')) model.push('PDF');
+
+    const url = '@Html.Raw(@Url.Action("EMRView", "component"))';
+    $.ajax({
+        url: url,
+        data: JSON.stringify(model),
+        type: 'POST',
+        contentType: 'application/json;charset=utf-8',
+        async: true,
+        success: function (data) {
+            $("#ContentPanel").html('<div style="margin: auto; padding: 10px;">' + data.HTML + '</div>');
+        },
+        error: function (xhr) {
+            alert("失敗: " + (xhr.responseText || "未知錯誤"));
+        }
+    });
+}
+
+    // Initialize jqxNotification
+    function initializeJqxNotification() {
+        $("#jqxNotification").jqxNotification({
+            theme: "summer",
+            width: "auto",
+            position: "bottom-right",
+            opacity: 0.7,
+            autoOpen: false,
+            animationOpenDelay: 800,
+            autoClose: true,
+            autoCloseDelay: 3000,
+            template: "time"
+        });
+    }
+
+
+    // Initialize jqxTree source with model data
+    function initializeJqxTreeSource() {
+        var data = null;
+        @if (Model != null) {
+            @: data = @Html.Raw(Json.Encode(Model.node));
+            @: $('#jqxTree').jqxTree({ source: data, checkboxes: true, theme: "summer", width: '100%', height: '100%' });
+        }
+    }
+
+    // Attach click event to OrgSigntButton
+    function attachOrgSigntButtonClickListener() {
+        $("#OrgSigntButton").click(async function (e) {
+            e.preventDefault(); // 阻止 <a> 預設行為
+
+            const checkedItems = [];
+
+            const tree = $("#jqxTree");
+            if (tree.length === 0) {
+                console.error("jqxTree not found!");
+                return checkedItems; // 若 `#jqxTree` 不存在則返回空陣列
+            }
+
+            const checkedNodes = tree.jqxTree("getCheckedItems");
+
+            if (Array.isArray(checkedNodes) && checkedNodes.length > 0) {
+                checkedNodes.forEach(node => {
+                    if (node && node.id) checkedItems.push(node.id);
+                });
+            }
+
+            if (checkedItems.length === 0) {
+                alert("請先選擇要備簽的項目！");
+                return;
+            }
+
+            $.ajax({
+                url: "@Url.Action("OrgSignAction", "component")", // 動態產生 URL
+                type: "POST",
+                data: JSON.stringify({ selectedItems: checkedItems }),
+                contentType: "application/json",
+                success: function (response) {
+
+                    // Show success or error message in an alert box
+                    if (response.success) {
+                        alert(response.message); // Success message
+                        $('#btnSearch_EMR').click();
+                    } else {
+                        alert(response.message); // Error message
+                    }
+
+                },
+                error: function (xhr, status, error) {
+                    // If an error occurs during the request, show a detailed error alert
+                    var errorMessage = "發生錯誤: " + error + "\n";
+                    alert(errorMessage);
+                }
+            });
+        });
+    }
+
+
+    
+    function attachcancelPrintButtonClickListener() {
+        $("#cancelPrintButton").click(async function (e) {
+         e.preventDefault(); // 阻止 <a> 預設行為
+
+         const checkedItems = [];
+
+         const tree = $("#jqxTree");
+         if (tree.length === 0) {
+             console.error("jqxTree not found!");
+             return checkedItems; // 若 `#jqxTree` 不存在則返回空陣列
+         }
+
+         const checkedNodes = tree.jqxTree("getCheckedItems");
+
+         if (Array.isArray(checkedNodes) && checkedNodes.length > 0) {
+             checkedNodes.forEach(node => {
+                 if (node && node.id) checkedItems.push(node.id);
+             });
+         }
+
+         if (checkedItems.length === 0) {
+             alert("請先選擇要取消列印的項目！");
+             return;
+         }
+
+         $.ajax({
+             url: "@Url.Action("cancelPrint", "component")", // 動態產生 URL
+             type: "POST",
+             data: JSON.stringify({ selectedItems: checkedItems }),
+             contentType: "application/json",
+             success: function (response) {
+
+                 // Show success or error message in an alert box
+                 if (response.success) {
+                     alert(response.message); // Success message
+                     $('#btnSearch_EMR').click();
+                 } else {
+                     alert(response.message); // Error message
+                 }
+
+             },
+             error: function (xhr, status, error) {
+                 // If an error occurs during the request, show a detailed error alert
+                 var errorMessage = "發生錯誤: " + error + "\n";
+                 alert(errorMessage);
+             }
+         });
+     });
+ }
+</script>
+
+
+<script>
+
+ var selectedItems = [];
+
+function handleButtonClick() {
+    selectedItems = [];
+
+    var checkedItems = $('#jqxTree').jqxTree('getCheckedItems');
+
+    if (checkedItems.length !== 2) {
+        var message = "<div style='padding:1em; font-size: 14pt;'>請選擇兩筆資料進行比較！</div>";
+        document.getElementById('jqxNotification').innerHTML = message;
+        $("#jqxNotification").jqxNotification("open");
+        return;
+    }
+
+    var chkID1 = checkedItems[0].id;
+    var chkID2 = checkedItems[1].id;
+    var iconsize = checkedItems[0].iconsize;
+
+    selectedItems.push(chkID1, chkID2, iconsize);
+
+    var url = '@Html.Raw(@Url.Action("CompareDifference", "Home"))';
+    var model = JSON.stringify(selectedItems);
+
+    $.ajax({
+        url: url,
+        data: model,
+        type: 'POST',
+        contentType: 'application/json;charset=utf-8',
+        async: false,
+        success: function (data) {
+            $("#jqxNotification").hide();
+            $("#Compare2").html(data.CompareWEB);
+            $("#WEB1").html(data.HistoryWEB1);
+            $("#WEB2").html(data.HistoryWEB2);
+            $('#Compare').window('close');
+            $('#Compare').window('open');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert("Error: " + xhr.responseText);
+        }
+    });
+
+    // 清空選擇
+    selectedItems = [];
+    $('#jqxTree').jqxTree('uncheckAll');
+}
+
+</script>
+
+<div class="easyui-layout" style="width: 100%; height: 100%;">
+
+    <!-- West Region: EMR History -->
+    <div data-options="region: 'west', split: true" title="EMR History" style="width: 25%; height: 100%;">
+        <div id="jqxTree" style="visibility: hidden; border: none;"></div>
+    </div>
+
+    <!-- Center Region: EMR Document -->
+    <div id="ContentPanel" data-options="region: 'center', title: 'EMR Document'" style="width: 75%; height: 100%;">
+    </div>
+
+    <!-- South Region: Hospital Signature Button -->
+    <div data-options="region: 'south', split: true" style="height: 50px;">
+        <a href="#" id="OrgSigntButton" class="easyui-linkbutton" style="height: 45px; width: 120px;"
+           data-options="plain: true, iconCls: 'icon-OrgSign1'">醫院簽章</a>
+
+
+        <a href="#" id="DiffEMRButton" class="easyui-linkbutton" style="height: 45px; width: 120px;"
+           data-options="plain: true, iconCls: 'icon-filesave'">病歷差異</a>
+
+
+        <a href="#" id="cancelPrintButton" class="easyui-linkbutton" style="height: 45px; width: 120px;"
+           data-options="plain: true, iconCls: 'icon-cancel'">取消列印</a>
+    </div>
+
+</div>
+
+
+@Html.Partial("~/Views/Home/component/CompareView.cshtml")
+
+
+
+

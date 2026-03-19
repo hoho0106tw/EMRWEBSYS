@@ -1,0 +1,90 @@
+﻿@using EMRLOGQUERY.Models
+@model List<AuditPrintDetailModels>
+
+
+<script>
+    function adjustGridSize() {
+        var windowWidth = $(window).width() - 100;
+        var windowHeight = $(window).height() - 80;
+
+        $("#datagrid").datagrid("resize", {
+            width: windowWidth,
+            height: windowHeight
+        });
+    }
+
+    $(document).ready(function () {
+        adjustGridSize();
+    });
+
+    $(window).resize(function () {
+        adjustGridSize();
+    });
+
+
+    function openPrintDetail(ID) {        
+        var baseUrl = '@Url.Action("PrintDetail", "Audit")';
+        var url = baseUrl + '?ID=' + encodeURIComponent(ID);
+        $("#printDetailFrame").attr("src", url);
+        $("#printDetailModal").show();
+    }
+
+    function closePrintDetail() {
+        $("#printDetailModal").hide();
+    }
+</script>
+
+
+
+
+
+
+
+<table class="easyui-datagrid" style="width:100%; height: 100%;" id="datagrid" data-options="rownumbers:true,singleSelect:true">
+    <thead>
+        <tr>
+            <th data-options="field:'PrintDetail',width:100,formatter:printDetailFormatter">列印細項</th>
+            <th data-options="field:'documentID',width:100">文件序號</th>
+            <th data-options="field:'patno',width:100">病歷號碼</th>
+            <th data-options="field:'patname',width:100">病人姓名</th>
+            <th data-options="field:'OrderDate',width:100">醫囑日期</th>
+            <th data-options="field:'SignerEmployeeID',width:100">簽章者員編</th>
+            <th data-options="field:'SignerName',width:100">簽章者姓名</th>
+            <th data-options="field:'SubmissionDate',width:100">送簽日期</th>
+            <th data-options="field:'SubmissionTime',width:100">送簽時間</th>
+            <th data-options="field:'SystemType',width:100">系統別</th>
+            <th data-options="field:'DocumentType',width:100">文件別</th>
+            <th data-options="field:'Status',width:100">狀態</th>
+            <th data-options="field:'PrintDate',width:100">列印日期</th>
+            <th data-options="field:'PrintTime',width:100">列印時間</th>
+            <th data-options="field:'PrintReason',width:200">列印原因</th>
+            <th data-options="field:'ID',width:1,hidden:true">ID</th>
+        </tr>
+    </thead>
+</table>
+
+
+<!-- 模態框 -->
+<div id="printDetailModal" style="display:none; position:fixed; top:10%; left:10%; width:80%; height:60%; background:white; box-shadow:0px 0px 10px gray;">
+    <!-- 關閉按鈕 -->
+    <button onclick="closePrintDetail()" style="
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background: none;
+        border: none;
+        color: red;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;">
+        ✖
+    </button>
+    <iframe id="printDetailFrame" style="width:100%; height:90%; border:none;"></iframe>
+</div>
+
+<script>
+    function printDetailFormatter(value, row) {
+        return '<a href="javascript:void(0);" onclick="openPrintDetail(\'' + row.ID + '\')">查看</a>';
+    }
+</script>
+

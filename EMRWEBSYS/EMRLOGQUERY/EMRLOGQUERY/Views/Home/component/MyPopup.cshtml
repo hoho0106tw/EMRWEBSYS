@@ -1,0 +1,48 @@
+﻿<style>
+    /* 设置弹出模态框的大小和定位 */
+    #MyPopup .modal-dialog {
+        width: 95vw;
+        max-width: 100%;
+        height: 95vh;
+        max-height: 95vh;
+    }
+
+    /* 确保 modal-content 在模态框内充满整个区域 */
+    #MyPopup .modal-content {
+        height: 100%;
+    }
+
+    /* 修改关闭按钮的样式 */
+    #MyPopup .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        color: red; /* 修改关闭按钮颜色为红色 */
+        opacity: 0.5;
+    }
+
+        /* 鼠标悬停时改变颜色 */
+        #MyPopup .close:hover {
+            color: #000; /* 改为黑色 */
+            opacity: 1; /* 增加不透明度 */
+        }
+</style>
+
+<!-- 模态框 HTML 结构 -->
+<div id="MyPopup" class="modal fade in" tabindex="-1" role="dialog" inert>
+    <div class="modal-dialog" style="width: 80%; height: 80%;">
+        <div class="modal-content">
+            <!-- 在这里可以插入 PDF 或其他内容 -->
+            <button type="button" class="close" onclick="closeModal()">&times;</button>
+            <iframe id="contentIframe" style="width: 100%; height: 100%;" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 关闭模态框的函数
+    function closeModal() {
+        $("#MyPopup").modal("hide");
+    }
+</script>

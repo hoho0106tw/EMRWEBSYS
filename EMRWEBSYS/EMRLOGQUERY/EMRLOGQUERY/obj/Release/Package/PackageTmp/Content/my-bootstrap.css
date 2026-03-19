@@ -1,0 +1,213 @@
+﻿@media (min-width: 992px) { 
+    .search-box {
+        margin-top:1em;
+    }
+    .switch-bar {
+        position:fixed;
+        bottom:0;
+        left:0;
+    }
+    .side-bar {
+        position:fixed;
+        top:40px; 
+        bottom:0;
+    }
+    .list-display {
+        padding-left:1em;
+        padding-right:1em;
+    }
+    .nocase-bar {
+        display:none;
+    }
+}
+
+body,html {
+    height:100%;
+}
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: /*"Noto Sans TC",*/ "微軟正黑體", "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+}
+
+@media (min-width: 1200px) {
+    body {
+        font-size: 16px;
+        /*font-family: "Noto Sans TC", "微軟正黑體", "Microsoft JhengHei", Arial, Helvetica, sans-serif;*/
+    }
+}
+
+html, body,.container-fluid { overflow-x: hidden; }
+
+a {
+    color: cornflowerblue;
+    text-decoration: underline;
+}
+a:visited {
+    color: cornflowerblue;
+}
+
+.psuedo-link {
+    color:cornflowerblue;
+    text-decoration:underline;
+}
+.psuedo-link:hover {
+    cursor: pointer;
+}
+
+
+/*.table-striped > tbody > tr:nth-child(2n+1) > td, 
+.table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #f8f8f8;
+}*/
+
+
+.btn {
+    padding: .5em 1em;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    /*text-transform: uppercase;*/
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-my-blue { 
+  color: #ffffff; 
+  background-color: #0099CC; 
+  /*border:#0099CC;*/
+} 
+ 
+.btn-my-blue:hover, 
+.btn-my-blue:focus, 
+.btn-my-blue:active, 
+.btn-my-blue.active, 
+.open .dropdown-toggle.btn-my-blue { 
+  color: #ffffff; 
+  background-color: #33A6CC; 
+  border-color: #33A6CC; 
+} 
+ 
+.btn-my-blue:active, 
+.btn-my-blue.active, 
+.open .dropdown-toggle.btn-my-blue { 
+  background-image: none; 
+} 
+ 
+.btn-my-blue.disabled, 
+.btn-my-blue[disabled], 
+fieldset[disabled] .btn-my-blue, 
+.btn-my-blue.disabled:hover, 
+.btn-my-blue[disabled]:hover, 
+fieldset[disabled] .btn-my-blue:hover, 
+.btn-my-blue.disabled:focus, 
+.btn-my-blue[disabled]:focus, 
+fieldset[disabled] .btn-my-blue:focus, 
+.btn-my-blue.disabled:active, 
+.btn-my-blue[disabled]:active, 
+fieldset[disabled] .btn-my-blue:active, 
+.btn-my-blue.disabled.active, 
+.btn-my-blue[disabled].active, 
+fieldset[disabled] .btn-my-blue.active { 
+  background-color: #0099CC; 
+  border-color: #0099CC; 
+} 
+ 
+.btn-my-blue .badge { 
+  color: #0099CC; 
+  background-color: #ffffff; 
+}
+
+.btn-my-red { 
+  color: #ffffff; 
+  background-color: #F53B6F; 
+  border-color: #F53B5F; 
+} 
+ 
+.btn-my-red:hover, 
+.btn-my-red:focus, 
+.btn-my-red:active, 
+.btn-my-red.active, 
+.open .dropdown-toggle.btn-my-red { 
+  color: #ffffff; 
+  background-color: #F24173; 
+  border-color: #F53B5F; 
+} 
+ 
+.btn-my-red:active, 
+.btn-my-red.active, 
+.open .dropdown-toggle.btn-my-red { 
+  background-image: none; 
+} 
+ 
+.btn-my-red.disabled, 
+.btn-my-red[disabled], 
+fieldset[disabled] .btn-my-red, 
+.btn-my-red.disabled:hover, 
+.btn-my-red[disabled]:hover, 
+fieldset[disabled] .btn-my-red:hover, 
+.btn-my-red.disabled:focus, 
+.btn-my-red[disabled]:focus, 
+fieldset[disabled] .btn-my-red:focus, 
+.btn-my-red.disabled:active, 
+.btn-my-red[disabled]:active, 
+fieldset[disabled] .btn-my-red:active, 
+.btn-my-red.disabled.active, 
+.btn-my-red[disabled].active, 
+fieldset[disabled] .btn-my-red.active { 
+  background-color: #F53B6F; 
+  border-color: #F53B5F; 
+} 
+ 
+.btn-my-red .badge { 
+  color: #F53B6F; 
+  background-color: #ffffff; 
+}
+
+.btn-my-green { 
+  color: #ffffff; 
+  background-color: #05AB5B; 
+  border-color: #05AB5B; 
+} 
+ 
+.btn-my-green:hover, 
+.btn-my-green:focus, 
+.btn-my-green:active, 
+.btn-my-green.active, 
+.open .dropdown-toggle.btn-my-green { 
+  color: #ffffff; 
+  background-color: #18A82D; 
+  border-color: #05AB5B; 
+} 
+ 
+.btn-my-green:active, 
+.btn-my-green.active, 
+.open .dropdown-toggle.btn-my-green { 
+  background-image: none; 
+} 
+ 
+.btn-my-green.disabled, 
+.btn-my-green[disabled], 
+fieldset[disabled] .btn-my-green, 
+.btn-my-green.disabled:hover, 
+.btn-my-green[disabled]:hover, 
+fieldset[disabled] .btn-my-green:hover, 
+.btn-my-green.disabled:focus, 
+.btn-my-green[disabled]:focus, 
+fieldset[disabled] .btn-my-green:focus, 
+.btn-my-green.disabled:active, 
+.btn-my-green[disabled]:active, 
+fieldset[disabled] .btn-my-green:active, 
+.btn-my-green.disabled.active, 
+.btn-my-green[disabled].active, 
+fieldset[disabled] .btn-my-green.active { 
+  background-color: #05AB5B; 
+  border-color: #05AB5B; 
+} 
+ 
+.btn-my-green .badge { 
+  color: #05AB5B; 
+  background-color: #ffffff; 
+}
