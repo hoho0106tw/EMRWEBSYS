@@ -1,0 +1,1 @@
+To meet cybersecurity requirements, the web interface of the Electronic Medical Record (EMR) system has added authentication and data encryption. Real data has been removed, and this code is provided as a sample.
